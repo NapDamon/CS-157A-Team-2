@@ -27,7 +27,7 @@
             
             //out.println("Initial entries in table \"emp\": <br/>");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM lopez.hw1");
+            //ResultSet rs = stmt.executeQuery("SELECT * FROM ");
             //while (rs.next()) {
             //    out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getInt(3) + "<br/><br/>");
             //}
