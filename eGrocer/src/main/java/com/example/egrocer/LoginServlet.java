@@ -2,6 +2,8 @@ package com.example.egrocer;
 
 import java.io.*;
 import java.sql.*;
+
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -11,7 +13,8 @@ public class LoginServlet extends HttpServlet {
 
     public void init() {message = "Login Page";}
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        /*
         String username = "";
         String password = "";
         response.setContentType("text/html");
@@ -37,6 +40,8 @@ public class LoginServlet extends HttpServlet {
         password = request.getParameter("password");
         out.println("</body></html>");
         out.close();
+        */
+        request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request,response);
     }
 
     public void destroy() {
