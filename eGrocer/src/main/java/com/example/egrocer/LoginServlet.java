@@ -43,7 +43,6 @@ public class LoginServlet extends HttpServlet {
         */
         request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request,response);
     }
-
     public void destroy() {
     }
 }

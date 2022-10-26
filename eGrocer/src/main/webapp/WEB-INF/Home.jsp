@@ -24,7 +24,7 @@
     <input type="text" placeholder="Search..">
 </div>
 
-<form method="post" align="center">
+<form  align="center" action="home">
     <br /><br />
     <label for="vendor">Select Vendor</label>
     <select id="vendor" name="vendor" class="selectVendor">
@@ -34,47 +34,38 @@
             String db = "egrocer";
             String user;
             user = "root";
-
             ResultSet rs = null;
             Statement stmt = null;
             Connection con = null;
             try {
-
                 Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "root");
                 stmt = con.createStatement();
                 rs = stmt.executeQuery("SELECT * FROM egrocer.vendors");
                 while (rs.next()) {
-                    out.println("<option value=" + rs.getString(2) + ">" + rs.getString(2) + "</option><br/><br/>");
-
+                    out.println("<option value=\"" + rs.getString(2) + "\">" + rs.getString(2) + "</option><br/><br/>");
                 }
                 rs.close();
                 stmt.close();
-               // con.close();
+                // con.close();
             } catch (SQLException e) {
                 output.println("SQLException caught: " + e.getMessage());
             }
         %>
     </select>
-<%--    <h3 id="selectedVendor"></h3>--%>
-<%--    <script>--%>
-<%--        $(document).ready(function() {--%>
-<%--            $("select.selectVendor").change(function() {--%>
-<%--                const header = document.getElementById("selectedVendor");--%>
-<%--                header.innerHTML = $(this).children("option:selected").val() + " Shop";--%>
+    <input type="submit" value="Go!">
 
-<%--            });--%>
-<%--        });--%>
-<%--    </script>--%>
+
     <%
         String selectedVendor =  request.getParameter("vendor");
-        out.println("<h3>"+selectedVendor+"</h3>");
+        if (selectedVendor != null){
+            out.println("<h3>"+selectedVendor+" Shop"+"</h3>");
+        }
+
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT * FROM stock WHERE vendor="  + "'"+selectedVendor+"'" );
         while (rs.next()) {
             out.println( rs.getString(3) + ", " + rs.getString(4) +" "+"<input type=\"submit\" value=\"Add to cart\">" + "<br/><br/>");
-
-
         }
         rs.close();
         stmt.close();
