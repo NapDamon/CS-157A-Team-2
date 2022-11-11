@@ -23,6 +23,8 @@
         String username = "", password="";
         int userID = 0;
         if(session.getAttribute("name")!= null){
+            username = session.getAttribute("name").toString();
+            password = session.getAttribute("password").toString();
             out.println("Welcome " + session.getAttribute("name"));
             if("logout".equals(request.getParameter("logout"))){
                 session.setAttribute("name", null);
