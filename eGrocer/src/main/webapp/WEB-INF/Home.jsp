@@ -18,10 +18,28 @@
 
 <%--placeholder menu--%>
 <div align="center" class="topnav">
-    <a class="active" href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
     <input type="text" placeholder="Search..">
+    <%
+        String username = "", password="";
+        int userID = 0;
+        if(session.getAttribute("name")!= null){
+            out.println("Welcome " + session.getAttribute("name"));
+            if("logout".equals(request.getParameter("logout"))){
+                session.setAttribute("name", null);
+                session.setAttribute("password", null);
+                session.setAttribute("email", null);
+                session.setAttribute("address", null);
+                session.setAttribute("password", null);
+                session.invalidate();
+
+            }
+            else{
+                out.println("<form action=\"login-page\">");
+                out.println("<input type=\"submit\" value=\"Log out\" name=\"logout\"></form>");
+            }
+        }
+    %>
+
 </div>
 
 <form  align="center" action="home">
@@ -32,9 +50,13 @@
             response.setContentType("text/html");
             PrintWriter output = response.getWriter();
             String db = "egrocer";
+            int vendorID = 0;
+            int cartID = 0;
             String user;
             user = "root";
             ResultSet rs = null;
+            int update;
+            ResultSet rs2 = null;
             Statement stmt = null;
             Connection con = null;
             try {
@@ -43,10 +65,20 @@
                 stmt = con.createStatement();
                 rs = stmt.executeQuery("SELECT * FROM egrocer.vendors");
                 while (rs.next()) {
-                    out.println("<option value=\"" + rs.getString(2) + "\">" + rs.getString(2) + "</option><br/><br/>");
+                    vendorID = rs.getInt("vendor_id");
+                    out.println("<option value=\"" + rs.getString("vendor_name") + "\">" + rs.getString("vendor_name") + "</option><br/><br/>");
+                }
+                rs.close();
+
+                rs = stmt.executeQuery("SELECT * FROM own");
+                while(rs.next()){
+                    if(rs.getInt("customer_id") == userID){
+                        cartID = rs.getInt("cart_id");
+                    }
                 }
                 rs.close();
                 stmt.close();
+
                 // con.close();
             } catch (SQLException e) {
                 output.println("SQLException caught: " + e.getMessage());
@@ -63,13 +95,21 @@
         }
 
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM stock WHERE vendor="  + "'"+selectedVendor+"'" );
-        while (rs.next()) {
-            out.println( rs.getString(3) + ", " + rs.getString(4) +" "+"<input type=\"submit\" value=\"Add to cart\">" + "<br/><br/>");
+
+        rs = stmt.executeQuery("SELECT * FROM products WHERE vendor_id IN (SELECT vendor_id FROM vendors WHERE vendor_name =" +selectedVendor + ")");
+        while (rs.next()){
+                out.println( rs.getString("product_name") +rs.getFloat("price") +" " +"<input type=\"submit\" name = \"cart\" value=\"Add to cart\">" + "<br/><br/>");
+                if(request.getParameter("cart") != null){
+                    update = stmt.executeUpdate("INSERT INTO cart (cart_id, product_id)VALUES(" + cartID + "," + rs.getString("product_id") + ")");
+                }
         }
+
         rs.close();
         stmt.close();
         con.close();
+
+
+
     %>
 
     <%--        <div class="row">--%>

@@ -1,8 +1,6 @@
-<%@ page import="java.sql.DriverManager" %>
-<%@ page import="java.sql.Statement" %>
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.sql.SQLException" %>
-<%@ page import="java.io.PrintWriter" %><%--
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="static java.lang.System.out" %><%--
   Created by IntelliJ IDEA.
   User: neenee
   Date: 10/25/22
@@ -16,24 +14,26 @@
 </head>
 <body>
 <h1>Sign Up</h1>
-<form>
+<form method="post" action="signup-page">
     <tr>
-        <td>First Name</td>
-        <td><input type="text" name="first_name" /></td>
+        <td>Name</td>
+        <td><input type="text" name="name" /></td>
     </tr>
     <tr>
-        <td>Last Name</td>
-        <td><input type="text" name="last_name" /></td>
-    </tr>
+        <td>Phone</td>
+        <td><input type="text" name="phone" /></td>
     <tr>
-        <td>UserName</td>
-        <td><input type="text" name="username" /></td>
+        <td>Email</td>
+        <td><input type="text" name="email" /></td>
+    </tr>
     </tr>
     <tr>
         <td>Password</td>
         <td><input type="password" name="password" /></td>
     </tr>
     <input type="submit" value="Submit" />
+
 </form>
+
 </body>
 </html>

@@ -5,9 +5,15 @@ import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import java.io.IOException;
+import java.sql.*;
+import java.util.HashMap;
+
+import static java.lang.System.out;
 
 @WebServlet(name = "signupServlet", value = "/signup-page")
 public class SignupServlet extends HttpServlet {
+
     private String message;
 
     public void init() {

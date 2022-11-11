@@ -39,9 +39,11 @@
 
     //out.println("Initial entries in table \"Projectdb\": <br/>");
     Statement stmt = con.createStatement();
-    ResultSet rs = stmt.executeQuery("SELECT Username FROM eGrocer WHERE" + usernameInput + " = Username AND " +  passwordInput + " = Password");
-    if(rs.next())
+    ResultSet rs = stmt.executeQuery("SELECT user_id, Username FROM eGrocer WHERE" + usernameInput + " = Username AND " +  passwordInput + " = Password");
+    if(rs.next()){
       output.println("Logged in as " + usernameInput);
+
+    }
     rs.close();
     stmt.close();
     con.close();
