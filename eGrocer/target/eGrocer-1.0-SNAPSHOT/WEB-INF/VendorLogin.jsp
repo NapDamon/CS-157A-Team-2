@@ -15,15 +15,15 @@
 
     <label>
         Vendor Name:
-        <input type="text" name="vName" >
+        <input type="text" name="vName" required>
     </label>
     <label>
         Email:
-        <input type="email" name="vEmail" >
+        <input type="email" name="vEmail" required>
     </label>
     <label>
         Password:
-        <input type="password" name="vPassword">
+        <input type="password" name="vPassword" required>
     </label>
     <input type="submit" value="Log in">
 </form>
