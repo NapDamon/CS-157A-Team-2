@@ -32,7 +32,10 @@ public class VendorLogin extends HttpServlet {
         response.getWriter().println(result);
 
         if(result.contains("User Validated Successfully") ){
+
+            int vendor_id = rdao.getVendorID(vendor);
             HttpSession session = request.getSession();
+            session.setAttribute("vendor_id", vendor_id);
             session.setAttribute("vendor", vendor);
             session.setAttribute("password", password);
             session.setAttribute("email", email);

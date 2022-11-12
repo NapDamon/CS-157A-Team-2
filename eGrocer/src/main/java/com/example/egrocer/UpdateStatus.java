@@ -10,30 +10,37 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "editProductPrice", value = "/editProductPrice")
-public class EditProductPrice extends HttpServlet {
+import static java.lang.System.out;
+
+@WebServlet(name = "updateStatus", value = "/updateStatus")
+public class UpdateStatus extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/VendorOrders.jsp").forward(request,response);
 
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        float newPrice= Float.parseFloat(request.getParameter("newPrice"));
-        int product_id = Integer.parseInt(request.getParameter("product_id"));
-        String vendor;
-        HttpSession session = request.getSession();
-        vendor = (String) session.getAttribute("vendor");
+        String newStatus =request.getParameter("newStatus");
+        int order_num = Integer.parseInt(request.getParameter("order_num"));
 
-        ProductsDao pdao=new ProductsDao();
-        int vendor_id = pdao.getVendorID(vendor);
+
+        HttpSession session = request.getSession();
+       // String vendor = (String) session.getAttribute("vendor");
+        int vendor_id = (int) session.getAttribute("vendor_id");
+
+        OrderDao odao=new OrderDao();
+       // int order_num = odao.getOrderNum(vendor_id, shipment_id);
         String result = null;
         try {
-            result = pdao.editProductPrice(product_id,vendor_id, newPrice);
+            result = odao.updateStatus(order_num, newStatus);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/VendorOrders.jsp").forward(request,response);
         response.getWriter().println(result);
+
+
+
 
 
     }

@@ -133,18 +133,19 @@ public class ProductsDao {
         }
         return result;
     }
-    public String editProductName(int vendor_id, String pname) throws SQLException {
+    public String editProductName(int product_id, int vendor_id, String pname) throws SQLException {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
         con.setAutoCommit(false);
-        String sql = "UPDATE products SET product_name = ? WHERE vendor_id= ? ";
+        String sql = "UPDATE products SET product_name = ? WHERE vendor_id= ? AND products.product_id= ?";
 
         String result="Data Updated Successfully";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, pname);
             ps.setInt(2, vendor_id);
+            ps.setInt(3,product_id);
             ps.executeUpdate();
             con.commit();
             ps.close();
@@ -158,18 +159,19 @@ public class ProductsDao {
         }
         return result;
     }
-    public String editProductPrice(int vendor_id, float price) throws SQLException {
+    public String editProductPrice(int product_id, int vendor_id, float price) throws SQLException {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
         con.setAutoCommit(false);
-        String sql = "UPDATE products SET price = ? WHERE vendor_id= ? ";
+        String sql = "UPDATE products SET price = ? WHERE vendor_id= ? AND product_id =?";
 
         String result="Data Updated Successfully";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setFloat(1, price);
             ps.setInt(2, vendor_id);
+            ps.setInt(3, product_id);
             ps.executeUpdate();
             con.commit();
             ps.close();
@@ -183,18 +185,19 @@ public class ProductsDao {
         }
         return result;
     }
-    public String editProductQuantity(int vendor_id, int quantity) throws SQLException {
+    public String editProductQuantity(int product_id, int vendor_id, int quantity) throws SQLException {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
         con.setAutoCommit(false);
-        String sql = "UPDATE products SET quantity = ? WHERE vendor_id= ? ";
+        String sql = "UPDATE products SET quantity = ? WHERE vendor_id= ? AND products.product_id=?";
 
         String result="Data Updated Successfully";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, quantity);
             ps.setInt(2, vendor_id);
+            ps.setInt(3, product_id);
             ps.executeUpdate();
             con.commit();
             ps.close();

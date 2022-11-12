@@ -95,4 +95,28 @@ public class RegisterDao {
         return result;
 
     }
+    public int getVendorID(String vendor){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "SELECT * FROM vendors" ;
+        int result=0;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            while (rs.next()){
+                if(vendor.equals(rs.getString("vendor_name"))){
+                    result = rs.getInt("vendor_id");
+                }
+            }
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            result = 0;
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

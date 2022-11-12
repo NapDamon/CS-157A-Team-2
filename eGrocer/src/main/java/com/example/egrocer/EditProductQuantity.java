@@ -19,6 +19,7 @@ public class EditProductQuantity extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int newQuantity = Integer.parseInt(request.getParameter("newQuantity"));
+        int product_id = Integer.parseInt(request.getParameter("product_id"));
         String vendor;
         HttpSession session = request.getSession();
         vendor = (String) session.getAttribute("vendor");
@@ -27,7 +28,7 @@ public class EditProductQuantity extends HttpServlet {
         int vendor_id = pdao.getVendorID(vendor);
         String result = null;
         try {
-            result = pdao.editProductQuantity(vendor_id, newQuantity);
+            result = pdao.editProductQuantity(product_id,vendor_id, newQuantity);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -19,6 +19,7 @@ public class EditProductName extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String newPname=request.getParameter("newPname");
+        int product_id = Integer.parseInt(request.getParameter("product_id"));
         String vendor;
         HttpSession session = request.getSession();
         vendor = (String) session.getAttribute("vendor");
@@ -27,7 +28,7 @@ public class EditProductName extends HttpServlet {
         int vendor_id = pdao.getVendorID(vendor);
         String result = null;
         try {
-            result = pdao.editProductName(vendor_id, newPname);
+            result = pdao.editProductName(product_id, vendor_id, newPname);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

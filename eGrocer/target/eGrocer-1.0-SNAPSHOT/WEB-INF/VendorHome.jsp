@@ -27,6 +27,9 @@
 
     out.println("<div><h3>Welcome "+ vendor +"</h3>");
 %>
+<form action="vendorOrders">
+  <input type="submit" value="View Orders">
+</form>
     <form action="vendorLogin">
     <input type="submit" value="Log out" name="logout">
     </form></div>
@@ -59,6 +62,8 @@
         ResultSet rs = null;
         Statement stmt = null;
         Connection con = null;
+        int i =1;
+        String product_id;
         try {
           Class.forName("com.mysql.jdbc.Driver");
           con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "root");
@@ -66,12 +71,46 @@
           rs = stmt.executeQuery("SELECT * FROM products");
           while(rs.next()){
             if(vendor_id == rs.getInt("vendor_id")){
-              out.println(rs.getString("product_name")+ "<form action=\"vendorHome\"> <input type=\"submit\" value=\"Edit\" name=\"editName\"></form>");
-              out.println(rs.getFloat("price")+ "<form action=\"vendorHome\"> <input type=\"submit\" value=\"Edit\" name=\"editPrice\"></form>");
-              out.println(rs.getInt("quantity") + "<form action=\"vendorHome\"> <input type=\"submit\" value=\"Edit\" name=\"editQuantity\"></form>");
+              out.println("<form action=\"vendorHome\"> Product: "+rs.getString("product_name")+ "<input type=\"submit\" value=\"Edit\" name=\"editName"+ i+ "\">"
+              + "  Price: " +rs.getFloat("price")+ " <input type=\"submit\" value=\"Edit\" name=\"editPrice" +i +"\">"
+              +"  Quantity: "+ rs.getInt("quantity") + "<input type=\"submit\" value=\"Edit\" name=\"editQuantity"+ i+"\"></form>");
+//              out.println(rs.getFloat("price")+ "<form action=\"vendorHome\"> <input type=\"submit\" value=\"Edit\" name=\"editPrice" +i +"\"></form>");
+//              out.println(rs.getInt("quantity") + "<form action=\"vendorHome\"> <input type=\"submit\" value=\"Edit\" name=\"editQuantity"+ i+"\"></form>");
 
-
-
+              if("Edit".equals(request.getParameter("editPrice"+i))){
+                product_id = String.valueOf(rs.getInt("product_id"));
+                out.println("<form method=\"post\" action=\"editProductPrice\">\n" +
+                        " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
+                        " <label>\n" +
+                        " New Product Price:\n" +
+                        " <input type=\"text\" name=\"newPrice\">\n" +
+                        " </label>\n" +
+                        " <input type=\"submit\" value=\"Update\">\n" +
+                        " </form>");
+              }
+              if("Edit".equals(request.getParameter("editName"+i))){
+                product_id = String.valueOf(rs.getInt("product_id"));
+                out.println("<form method=\"post\" action=\"editProductName\">\n" +
+                        " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
+                        " <label>\n" +
+                        " New Product Name:\n" +
+                        " <input type=\"text\" name=\"newPname\">\n" +
+                        " </label>\n" +
+                        " <input type=\"submit\" value=\"Update\">\n" +
+                        " </form>");
+              }
+              if("Edit".equals(request.getParameter("editQuantity"+i))){
+                product_id = String.valueOf(rs.getInt("product_id"));
+                out.println("<form method=\"post\" action=\"editProductQuantity\">\n" +
+                        " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
+                        " <label>\n" +
+                        " New Product Quantity:\n" +
+                        " <input type=\"text\" name=\"newQuantity\">\n" +
+                        " </label>\n" +
+                        " <input type=\"submit\" value=\"Update\">\n" +
+                        " </form>");
+              }
+              i++;
             }
           }
 
@@ -83,44 +122,44 @@
           out.println("SQLException caught: " + e.getMessage());
         }
 
-        if("Edit".equals(request.getParameter("editName"))){
+       // if("Edit".equals(request.getParameter("editName"))){
 
         %>
-        <form method="post" action="editProductName">
-          <label>
-            New Product Name:
-            <input type="text" name="newPname">
-          </label>
-          <input type="submit" value="Update">
-        </form>
-<%
-        }
+<%--        <form method="post" action="editProductName">--%>
+<%--          <label>--%>
+<%--            New Product Name:--%>
+<%--            <input type="text" name="newPname">--%>
+<%--          </label>--%>
+<%--          <input type="submit" value="Update">--%>
+<%--        </form>--%>
+<%--<%--%>
+<%--        }--%>
 
-          if("Edit".equals(request.getParameter("editPrice"))){
+<%--          if("Edit".equals(request.getParameter("editPrice"))){--%>
 
-        %>
-        <form method="post" action="editProductPrice">
-          <label>
-            New Product Name:
-            <input type="text" name="newPrice">
-          </label>
-          <input type="submit" value="Update">
-        </form>
-        <%
-          }
-          if("Edit".equals(request.getParameter("editQuantity"))){
+<%--        %>--%>
+<%--        <form method="post" action="editProductPrice">--%>
+<%--          <label>--%>
+<%--            New Product Name:--%>
+<%--            <input type="text" name="newPrice">--%>
+<%--          </label>--%>
+<%--          <input type="submit" value="Update">--%>
+<%--        </form>--%>
+<%--        <%--%>
+<%--          }--%>
+<%--          if("Edit".equals(request.getParameter("editQuantity"))){--%>
 
-        %>
-          <form method="post" action="editProductQuantity">
-            <label>
-              New Product Name:
-              <input type="text" name="newQuantity">
-            </label>
-            <input type="submit" value="Update">
-          </form>
-          <%
-            }
-    %>
+<%--        %>--%>
+<%--          <form method="post" action="editProductQuantity">--%>
+<%--            <label>--%>
+<%--              New Product Name:--%>
+<%--              <input type="text" name="newQuantity">--%>
+<%--            </label>--%>
+<%--            <input type="submit" value="Update">--%>
+<%--          </form>--%>
+<%--          <%--%>
+<%--            }--%>
+<%--    %>--%>
 
 
 
