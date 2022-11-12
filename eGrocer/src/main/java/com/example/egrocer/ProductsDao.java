@@ -45,4 +45,167 @@ public class ProductsDao {
         }
         return result;
     }
+    public int getVendorID(String vendor){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "SELECT * FROM vendors" ;
+        int result=0;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            while (rs.next()){
+                if(vendor.equals(rs.getString("vendor_name"))){
+                    result = rs.getInt("vendor_id");
+                }
+            }
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            result = 0;
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public String addProducts(int vendor_id, String pname, float price, int quantity){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "insert into products(product_name, quantity, price, vendor_id) VALUES (?,?,?,?)";
+        String result="Data Entered Successfully";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, pname);
+            ps.setInt(2, quantity);
+            ps.setFloat(3, price);
+            ps.setInt(4, vendor_id);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            result="Data Not Entered Successfully";
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public int getProductID(int vendor_id, String pname){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "SELECT * FROM products" ;
+        int result=0;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            while (rs.next()){
+                if(pname.equals(rs.getString("product_name"))
+                        && vendor_id == rs.getInt("vendor_id")){
+                    result = rs.getInt("product_id");
+                }
+            }
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            result = 0;
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public String editProducts(int product_id, String pname, float price, int quantity){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "update products set product_name = " + pname + ", price = " + price + ", quantity = " + quantity
+                + " where product_id = " + product_id;
+        String result="Data Entered Successfully";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            result="Data Not Entered Successfully";
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public String editProductName(int vendor_id, String pname) throws SQLException {
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        con.setAutoCommit(false);
+        String sql = "UPDATE products SET product_name = ? WHERE vendor_id= ? ";
+
+        String result="Data Updated Successfully";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, pname);
+            ps.setInt(2, vendor_id);
+            ps.executeUpdate();
+            con.commit();
+            ps.close();
+            con.close();
+
+        } catch (SQLException e) {
+
+
+            result="Data Not Updated Successfully";
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public String editProductPrice(int vendor_id, float price) throws SQLException {
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        con.setAutoCommit(false);
+        String sql = "UPDATE products SET price = ? WHERE vendor_id= ? ";
+
+        String result="Data Updated Successfully";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setFloat(1, price);
+            ps.setInt(2, vendor_id);
+            ps.executeUpdate();
+            con.commit();
+            ps.close();
+            con.close();
+
+        } catch (SQLException e) {
+
+
+            result="Data Not Updated Successfully";
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public String editProductQuantity(int vendor_id, int quantity) throws SQLException {
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        con.setAutoCommit(false);
+        String sql = "UPDATE products SET quantity = ? WHERE vendor_id= ? ";
+
+        String result="Data Updated Successfully";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, quantity);
+            ps.setInt(2, vendor_id);
+            ps.executeUpdate();
+            con.commit();
+            ps.close();
+            con.close();
+
+        } catch (SQLException e) {
+
+
+            result="Data Not Updated Successfully";
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

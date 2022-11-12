@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import static java.lang.System.out;
 
@@ -30,7 +31,7 @@ public class VendorLogin extends HttpServlet {
         String result=rdao.verifyUser(email, password);
         response.getWriter().println(result);
 
-        if(!result.contains("Not") ){
+        if(result.contains("User Validated Successfully") ){
             HttpSession session = request.getSession();
             session.setAttribute("vendor", vendor);
             session.setAttribute("password", password);
@@ -38,14 +39,17 @@ public class VendorLogin extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
 
             if("Log out".equals(request.getParameter("logout"))){
-                session.setAttribute("vendor", null);
-                session.setAttribute("email", null);
-                session.setAttribute("password", null);
+                session.removeAttribute("vendor");
+                session.removeAttribute("email");
+                session.removeAttribute("password");
                 session.invalidate();
                 out.println("<a href=\"vendorLogin\">Log in</a>");
             }
 
         }
+
+
+
 
 
     }

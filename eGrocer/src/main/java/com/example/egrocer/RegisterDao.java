@@ -72,7 +72,7 @@ public class RegisterDao {
         loadDriver(dbdriver);
         Connection con = getConnection();
         String sql = "select * from user";
-        String result="";
+        String result="Bad Credentials";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.executeQuery();
@@ -86,8 +86,9 @@ public class RegisterDao {
 
             }
 
+
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+
             result="User Not Validated Successfully";
             e.printStackTrace();
         }
