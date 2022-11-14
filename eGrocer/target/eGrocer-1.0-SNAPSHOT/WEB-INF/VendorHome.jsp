@@ -25,7 +25,7 @@
     ProductsDao pdao = new ProductsDao();
     int vendor_id = pdao.getVendorID(vendor);
 
-    out.println("<div><h3>Welcome "+ vendor +"</h3>");
+    out.println("<div><h3>Welcome, "+ vendor +"!</h3>");
 %>
 <form action="vendorOrders">
   <input type="submit" value="View Orders">
@@ -40,11 +40,11 @@
         <input type="text" name="pname" required>
       </label>
       <label>
-        Price
+        Price:
         <input type="text" name="price" required>
       </label>
       <label>
-        Quantity
+        Quantity:
         <input type="text" name="quantity" required>
       </label>
       <%
@@ -71,15 +71,27 @@
           rs = stmt.executeQuery("SELECT * FROM products");
           while(rs.next()){
             if(vendor_id == rs.getInt("vendor_id")){
-              out.println("<form action=\"vendorHome\"> Product: "+rs.getString("product_name")+ "<input type=\"submit\" value=\"Edit\" name=\"editName"+ i+ "\">"
+              out.println("<form action=\"vendorHome\"> Product: "+rs.getString("product_name")+ " <input type=\"submit\" value=\"Edit\" name=\"editName"+ i+ "\">"
               + "  Price: " +rs.getFloat("price")+ " <input type=\"submit\" value=\"Edit\" name=\"editPrice" +i +"\">"
-              +"  Quantity: "+ rs.getInt("quantity") + "<input type=\"submit\" value=\"Edit\" name=\"editQuantity"+ i+"\"></form>");
-//              out.println(rs.getFloat("price")+ "<form action=\"vendorHome\"> <input type=\"submit\" value=\"Edit\" name=\"editPrice" +i +"\"></form>");
-//              out.println(rs.getInt("quantity") + "<form action=\"vendorHome\"> <input type=\"submit\" value=\"Edit\" name=\"editQuantity"+ i+"\"></form>");
+              +"  Quantity: "+ rs.getInt("quantity") + " <input type=\"submit\" value=\"Edit\" name=\"editQuantity"+ i+"\">");
+              out.println("<input type=\"submit\" value=\"Remove Product\" name=\"delete" +i +"\"></form>");
+
+              if("Remove Product".equals(request.getParameter("delete"+i))){
+                product_id = String.valueOf(rs.getInt("product_id"));
+                out.println("<form method=\"post\" action=\"deleteProduct\">\n" +
+                        " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
+                        " <label>\n" +
+                        " Are you sure you want to proceed?\n" +
+                        " <input type=\"submit\" name=\"yes\" value=\"Yes\">\n" +
+                        " <input type=\"submit\" name=\"no\" value=\"Cancel\">\n" +
+                        " </label>\n" +
+                        " </form>");
+
+              }
 
               if("Edit".equals(request.getParameter("editPrice"+i))){
                 product_id = String.valueOf(rs.getInt("product_id"));
-                out.println("<form method=\"post\" action=\"editProductPrice\">\n" +
+                out.println("<form method=\"post\" action=\"editProduct\">\n" +
                         " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
                         " <label>\n" +
                         " New Product Price:\n" +
@@ -90,7 +102,7 @@
               }
               if("Edit".equals(request.getParameter("editName"+i))){
                 product_id = String.valueOf(rs.getInt("product_id"));
-                out.println("<form method=\"post\" action=\"editProductName\">\n" +
+                out.println("<form method=\"post\" action=\"editProduct\">\n" +
                         " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
                         " <label>\n" +
                         " New Product Name:\n" +
@@ -101,7 +113,7 @@
               }
               if("Edit".equals(request.getParameter("editQuantity"+i))){
                 product_id = String.valueOf(rs.getInt("product_id"));
-                out.println("<form method=\"post\" action=\"editProductQuantity\">\n" +
+                out.println("<form method=\"post\" action=\"editProduct\">\n" +
                         " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
                         " <label>\n" +
                         " New Product Quantity:\n" +
@@ -125,41 +137,7 @@
        // if("Edit".equals(request.getParameter("editName"))){
 
         %>
-<%--        <form method="post" action="editProductName">--%>
-<%--          <label>--%>
-<%--            New Product Name:--%>
-<%--            <input type="text" name="newPname">--%>
-<%--          </label>--%>
-<%--          <input type="submit" value="Update">--%>
-<%--        </form>--%>
-<%--<%--%>
-<%--        }--%>
 
-<%--          if("Edit".equals(request.getParameter("editPrice"))){--%>
-
-<%--        %>--%>
-<%--        <form method="post" action="editProductPrice">--%>
-<%--          <label>--%>
-<%--            New Product Name:--%>
-<%--            <input type="text" name="newPrice">--%>
-<%--          </label>--%>
-<%--          <input type="submit" value="Update">--%>
-<%--        </form>--%>
-<%--        <%--%>
-<%--          }--%>
-<%--          if("Edit".equals(request.getParameter("editQuantity"))){--%>
-
-<%--        %>--%>
-<%--          <form method="post" action="editProductQuantity">--%>
-<%--            <label>--%>
-<%--              New Product Name:--%>
-<%--              <input type="text" name="newQuantity">--%>
-<%--            </label>--%>
-<%--            <input type="submit" value="Update">--%>
-<%--          </form>--%>
-<%--          <%--%>
-<%--            }--%>
-<%--    %>--%>
 
 
 

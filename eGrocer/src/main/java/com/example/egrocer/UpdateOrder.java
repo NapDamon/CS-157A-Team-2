@@ -10,10 +10,8 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import static java.lang.System.out;
-
-@WebServlet(name = "updateStatus", value = "/updateStatus")
-public class UpdateStatus extends HttpServlet {
+@WebServlet(name = "updateOrder", value = "/updateOrder")
+public class UpdateOrder extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.getRequestDispatcher("/WEB-INF/VendorOrders.jsp").forward(request,response);
 
@@ -21,6 +19,7 @@ public class UpdateStatus extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String newStatus =request.getParameter("newStatus");
+        String newDate =request.getParameter("newDate");
         int order_num = Integer.parseInt(request.getParameter("order_num"));
 
 
@@ -31,11 +30,21 @@ public class UpdateStatus extends HttpServlet {
         OrderDao odao=new OrderDao();
        // int order_num = odao.getOrderNum(vendor_id, shipment_id);
         String result = null;
-        try {
-            result = odao.updateStatus(order_num, newStatus);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        if(newStatus != null){
+            try {
+                result = odao.updateStatus(vendor_id,order_num, newStatus);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
+        if(newDate != null){
+            try {
+                result = odao.updateOrderDate(vendor_id,order_num, newDate);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
         request.getRequestDispatcher("/WEB-INF/VendorOrders.jsp").forward(request,response);
         response.getWriter().println(result);
 

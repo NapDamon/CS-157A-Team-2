@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>eGrocer</title>
 </head>
 <body>
 <h1><%= "Welcome to eGrocer!" %>

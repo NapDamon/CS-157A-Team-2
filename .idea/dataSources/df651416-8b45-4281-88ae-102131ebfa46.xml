@@ -1137,7 +1137,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="317" parent="305" name="customers_id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>22</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1240,7 +1240,7 @@ cart_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="338" parent="309" name="product_id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>317</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1259,7 +1259,7 @@ cart_id</ColNames>
       <Position>4</Position>
     </column>
     <column id="342" parent="309" name="vendor_id">
-      <DataType>varchar(45)|0s</DataType>
+      <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
@@ -1309,7 +1309,7 @@ order_num</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="352" parent="311" name="user_id">
-      <AutoIncrement>21</AutoIncrement>
+      <AutoIncrement>47</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1342,7 +1342,6 @@ order_num</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="359" parent="312" name="vendor_id">
-      <AutoIncrement>1</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>

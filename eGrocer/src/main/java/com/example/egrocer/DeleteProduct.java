@@ -10,15 +10,16 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "editProductPrice", value = "/editProductPrice")
-public class EditProductPrice extends HttpServlet {
+@WebServlet(name = "deleteProduct", value = "/deleteProduct")
+public class DeleteProduct extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
 
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        float newPrice= Float.parseFloat(request.getParameter("newPrice"));
+        String delete =request.getParameter("yes");
+
         int product_id = Integer.parseInt(request.getParameter("product_id"));
         String vendor;
         HttpSession session = request.getSession();
@@ -27,13 +28,23 @@ public class EditProductPrice extends HttpServlet {
         ProductsDao pdao=new ProductsDao();
         int vendor_id = pdao.getVendorID(vendor);
         String result = null;
-        try {
-            result = pdao.editProductPrice(product_id,vendor_id, newPrice);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+
+        if("Yes".equals(delete)){
+            try {
+                result = pdao.deleteProduct(product_id, vendor_id);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
+            response.getWriter().println(result);
+        }else{
+            request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
+            response.getWriter().println(result);
         }
-        request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
-        response.getWriter().println(result);
+
+
+
+
 
 
     }

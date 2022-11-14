@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import static java.lang.System.out;
 
-@WebServlet(name = "vendorReg", value = "/vendorReg")
+@WebServlet(name = "vendorRegistration", value = "/vendorRegistration")
 public class VendorRegister extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,20 +21,27 @@ public class VendorRegister extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String vendor=request.getParameter("vName");
-        String password=request.getParameter("vPassword");
-        String email=request.getParameter("vEmail");
-        String phone=request.getParameter("vPhone");
-        String address=request.getParameter("vAddress");
-        User user=new User(vendor, password, email, phone, address);
+        String vendor =request.getParameter("vName");
+        String password =request.getParameter("vPassword");
+        String email =request.getParameter("vEmail");
+        String phone =request.getParameter("vPhone");
+        String address =request.getParameter("vAddress");
+        String result="";
+
         RegisterDao rdao=new RegisterDao();
-        String result=rdao.insertUser(user);
+        result =rdao.insertUser(password,address,phone,email);
         response.getWriter().println(result);
-        result = rdao.insertVendor(user);
+
+        int vendor_id = rdao.getUserID(address, phone);
+        response.getWriter().println(vendor_id);
+        if(vendor_id != 0){
+            result = rdao.insertVendor(vendor, vendor_id);
+        }
+
         response.getWriter().println(result);
 
         if(!result.contains("Not") ){
-            int vendor_id = rdao.getVendorID(vendor);
+//            int vendor_id = rdao.getVendorID(vendor);
             HttpSession session = request.getSession();
             session.setAttribute("vendor_id", vendor_id);
             session.setAttribute("vendor", vendor);

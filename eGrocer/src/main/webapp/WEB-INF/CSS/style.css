@@ -1,0 +1,45 @@
+.content {
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+.signupCard{
+    margin-top: 5%;
+    align-content: center;
+    border-radius: 25px;
+    background: whitesmoke;
+    padding: 64px;
+    width: 500px;
+    height: max-content;
+}
+
+.loginCard{
+    margin-top: 10%;
+    align-content: center;
+    border-radius: 25px;
+    background: whitesmoke;
+    padding: 64px;
+    width: 500px;
+    height: max-content;
+}
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+input[type=submit]:hover {
+    opacity: 0.8;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}

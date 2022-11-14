@@ -211,4 +211,39 @@ public class ProductsDao {
         }
         return result;
     }
+
+    public String deleteProduct(int product_id, int vendor_id) throws SQLException {
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+
+        String sql = "DELETE FROM products WHERE product_id = ? AND vendor_id = ?";
+
+        String result="";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, product_id);
+            ps.setInt(2, vendor_id);
+
+            int i = ps.executeUpdate();
+            if(i!=0)
+            {
+                result = "Deleting rows";
+            }
+            if(i==0){
+                ps.close();
+                con.close();
+                result = "Data Deleted Successfully";
+            }
+
+
+
+        } catch (SQLException e) {
+
+
+            result="Data Not Deleted Successfully";
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

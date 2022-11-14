@@ -10,8 +10,8 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "editProductName", value = "/editProductName")
-public class EditProductName extends HttpServlet {
+@WebServlet(name = "editProduct", value = "/editProduct")
+public class EditProduct extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
 
@@ -19,6 +19,8 @@ public class EditProductName extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String newPname=request.getParameter("newPname");
+        String newPrice= request.getParameter("newPrice");
+        String newQuantity = request.getParameter("newQuantity");
         int product_id = Integer.parseInt(request.getParameter("product_id"));
         String vendor;
         HttpSession session = request.getSession();
@@ -27,11 +29,33 @@ public class EditProductName extends HttpServlet {
         ProductsDao pdao=new ProductsDao();
         int vendor_id = pdao.getVendorID(vendor);
         String result = null;
-        try {
-            result = pdao.editProductName(product_id, vendor_id, newPname);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+
+        if(newPname != null){
+            try {
+                result = pdao.editProductName(product_id, vendor_id, newPname);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
+
+        if(newPrice != null){
+            float price = Float.parseFloat(newPrice);
+            try {
+                result = pdao.editProductPrice(product_id,vendor_id, price);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        if(newQuantity != null){
+            int quantity = Integer.parseInt(newQuantity);
+            try {
+                result = pdao.editProductQuantity(product_id,vendor_id, quantity);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
          request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
         response.getWriter().println(result);
 

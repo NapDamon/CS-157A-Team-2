@@ -32,15 +32,26 @@
         rs = stmt.executeQuery("SELECT * FROM ships WHERE vendor_id=" + vendor_id);
         while(rs.next()){
 
-            out.println("Order Number: "+ rs.getInt("order_num")+ ", Shipment ID: " + rs.getInt("shipment_id")
+            out.println("<form action=\"vendorOrders\">Order Number: "+ rs.getInt("order_num")+ ", Shipment ID: " + rs.getInt("shipment_id")
                     + ", Shipping Date: "+ rs.getString("shipping_date") + ", Status: " + rs.getString("status")
-                    + " <form action=\"vendorOrders\"> "
-                    + "<input type=\"submit\" value=\"Update Status\" name=\"editStatus" +i+"\"></form>");
+                    + "<input type=\"submit\" value=\"Update Status\" name=\"editStatus" +i+"\">"
+                    + "<input type=\"submit\" value=\"Update Shipping Date\" name=\"editDate" +i+"\"></form>");
 
+            if("Update Shipping Date".equals(request.getParameter("editDate"+i))){
+                order_num = String.valueOf(rs.getInt("order_num"));
+                out.println(" <form method=\"post\" action=\"updateOrder\">\n" +
+                        " <input type=\"hidden\" name=\"order_num\" value=\"" + order_num + "\">\n" +
+                        " <label>\n" +
+                        " New Status:\n" +
+                        " <input type=\"text\" name=\"newDate\">\n" +
+                        " </label>\n" +
+                        " <input type=\"submit\" value=\"Update\">\n" +
+                        " </form>");
+            }
 
             if("Update Status".equals(request.getParameter("editStatus"+i))){
                 order_num = String.valueOf(rs.getInt("order_num"));
-                out.println(" <form method=\"post\" action=\"updateStatus\">\n" +
+                out.println(" <form method=\"post\" action=\"updateOrder\">\n" +
                         " <input type=\"hidden\" name=\"order_num\" value=\"" + order_num + "\">\n" +
                         " <label>\n" +
                         " New Status:\n" +
@@ -58,17 +69,7 @@
         out.println("SQLException caught: " + e.getMessage());
     }
 
-//    if("Update Status".equals(request.getParameter("editStatus"))){
-//        out.println(" <form method=\"post\" action=\"updateStatus\">\n" +
-//                " <input type=\"hidden\" name=\"order_num\" value=\"" + order_num + "\">\n" +
-//                " <label>\n" +
-//                " New Status:\n" +
-//                " <input type=\"text\" name=\"newStatus\">\n" +
-//                " </label>\n" +
-//                " <input type=\"submit\" value=\"Update\">\n" +
-//                " </form>");
-//
-//    }
+
 %>
 </body>
 </html>
