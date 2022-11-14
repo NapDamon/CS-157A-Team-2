@@ -1,20 +1,32 @@
+html{
+    font-family: sans-serif;
+}
+.padding{
+    padding: 10%;
+}
+label{
+
+    width: available;
+    font-size: 20px;
+}
 .content {
     width:100%;
     display: flex;
+    font-family: sans-serif;
     justify-content: center;
-}
-.signupCard{
-    margin-top: 5%;
     align-content: center;
-    border-radius: 25px;
-    background: whitesmoke;
-    padding: 64px;
-    width: 500px;
-    height: max-content;
-}
 
-.loginCard{
-    margin-top: 10%;
+}
+.addCard{
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 25px;
+    background: whitesmoke;
+    padding: 20px;
+    width: 100%;
+    height: max-content;
+}
+.Card{
     align-content: center;
     border-radius: 25px;
     background: whitesmoke;
@@ -22,7 +34,7 @@
     width: 500px;
     height: max-content;
 }
-input[type=submit] {
+.formBtn {
     background-color: #04AA6D;
     color: white;
     padding: 14px 20px;
@@ -31,15 +43,77 @@ input[type=submit] {
     cursor: pointer;
     width: 100%;
 }
+.formBtn2 {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: available;
+}
 input[type=submit]:hover {
+
     opacity: 0.8;
 }
 
-input[type=text], input[type=password], input[type=email] {
+.textfield1{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+}
+
+.textfield2{
+    width: auto;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.logo{
+    padding: 16px;
+    color: #04AA6D;
+    display: flex;
+    height: 120px;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-family: sans-serif;
+    text-shadow: #cccccc 2px 2px 0.2rem;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    float: left;
+}
+
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: #04AA6D;
 }

@@ -12,23 +12,25 @@
     <style><%@include file="/WEB-INF/CSS/style.css"%></style>
 </head>
 <body>
-
+<header class="logo"><h1>eGrocer</h1></header>
 <div class="content">
-    <form method = "post" action = "vendorLogin" class="loginCard" >
+
+    <form method = "post" action = "vendorLogin" class="Card" >
 
         <label>
-            Vendor Name:
-            <input type="text" name="vName" required>
+            Phone Number:
+            <input type="text" name="vnumber" class="textfield1">
         </label>
+        <label>OR</label>
         <label>
             Email:
-            <input type="email" name="vEmail" required>
+            <input type="email" name="vEmail"  class="textfield1">
         </label>
         <label>
             Password:
-            <input type="password" name="vPassword" required>
+            <input type="password" name="vPassword" required class="textfield1">
         </label>
-        <input type="submit" value="Log in">
+        <input type="submit" value="Log in" class="formBtn">
 
         <div>Don't have an account? Sign up <a href="vendorRegistration">here</a></div>
     </form>

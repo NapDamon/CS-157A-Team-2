@@ -32,7 +32,7 @@ public class VendorRegister extends HttpServlet {
         result =rdao.insertUser(password,address,phone,email);
         response.getWriter().println(result);
 
-        int vendor_id = rdao.getUserID(address, phone);
+        int vendor_id = rdao.getUserID(email, password);
         response.getWriter().println(vendor_id);
         if(vendor_id != 0){
             result = rdao.insertVendor(vendor, vendor_id);
@@ -47,6 +47,8 @@ public class VendorRegister extends HttpServlet {
             session.setAttribute("vendor", vendor);
             session.setAttribute("password", password);
             session.setAttribute("email", email);
+            session.setAttribute("address", address);
+            session.setAttribute("phone", phone);
             request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
 
 

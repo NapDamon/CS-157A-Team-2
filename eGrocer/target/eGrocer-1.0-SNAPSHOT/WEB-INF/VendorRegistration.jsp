@@ -13,30 +13,31 @@
 </head>
 
 <body>
+<header class="logo"><h1>eGrocer</h1></header>
 <div class="content">
 
-  <form method = "post" action = "vendorRegistration" class="signupCard">
+  <form method = "post" action = "vendorRegistration" class="Card">
     <label>
       Vendor Name:
-      <input type="text" name="vName" required>
+      <input type="text" name="vName" required class="textfield1">
     </label>
     <label>
       Email:
-      <input type="email" name="vEmail" required>
+      <input type="email" name="vEmail" required class="textfield1">
     </label>
     <label>
       Phone:
-      <input type="text" name="vPhone" required>
+      <input type="text" name="vPhone" required class="textfield1">
     </label>
     <label>
       Address:
-      <input type="text" name="vAddress" required>
+      <input type="text" name="vAddress" required class="textfield1">
     </label>
     <label>
       Password:
-      <input type="password" name="vPassword" required>
+      <input type="password" name="vPassword" required class="textfield1">
     </label>
-    <input type="submit" value="Register">
+    <input type="submit" value="Register" class="formBtn">
   </form>
 </div>
 

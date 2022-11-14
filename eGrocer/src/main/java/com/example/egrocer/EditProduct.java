@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 @WebServlet(name = "editProduct", value = "/editProduct")
 public class EditProduct extends HttpServlet {
@@ -21,6 +22,8 @@ public class EditProduct extends HttpServlet {
         String newPname=request.getParameter("newPname");
         String newPrice= request.getParameter("newPrice");
         String newQuantity = request.getParameter("newQuantity");
+        String update = request.getParameter("update");
+        String cancel = request.getParameter("cancel");
         int product_id = Integer.parseInt(request.getParameter("product_id"));
         String vendor;
         HttpSession session = request.getSession();
@@ -29,36 +32,37 @@ public class EditProduct extends HttpServlet {
         ProductsDao pdao=new ProductsDao();
         int vendor_id = pdao.getVendorID(vendor);
         String result = null;
+        if("Update".equals(update)){
 
-        if(newPname != null){
-            try {
-                result = pdao.editProductName(product_id, vendor_id, newPname);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+            if(!Objects.equals(newPname, "")){
+                try {
+                    result = pdao.editProductName(product_id, vendor_id, newPname);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
-        }
 
-        if(newPrice != null){
-            float price = Float.parseFloat(newPrice);
-            try {
-                result = pdao.editProductPrice(product_id,vendor_id, price);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+            if(!Objects.equals(newPrice, "")){
+                float price = Float.parseFloat(newPrice);
+                try {
+                    result = pdao.editProductPrice(product_id,vendor_id, price);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
-        }
 
-        if(newQuantity != null){
-            int quantity = Integer.parseInt(newQuantity);
-            try {
-                result = pdao.editProductQuantity(product_id,vendor_id, quantity);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+            if(!Objects.equals(newQuantity, "")){
+                int quantity = Integer.parseInt(newQuantity);
+                try {
+                    result = pdao.editProductQuantity(product_id,vendor_id, quantity);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
+
+            response.getWriter().println(result);
         }
-
-         request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
-        response.getWriter().println(result);
-
+        request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
 
 
 

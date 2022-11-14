@@ -24,7 +24,7 @@ public class VendorLogin extends HttpServlet {
 
         String password=request.getParameter("vPassword");
         String email=request.getParameter("vEmail");
-        String vendor=request.getParameter("vName");
+
 
 
         RegisterDao rdao=new RegisterDao();
@@ -33,21 +33,25 @@ public class VendorLogin extends HttpServlet {
 
         if(result.contains("User Validated Successfully") ){
 
-            int vendor_id = rdao.getVendorID(vendor);
+            int vendor_id = rdao.getUserID(email, password);
+
             HttpSession session = request.getSession();
             session.setAttribute("vendor_id", vendor_id);
-            session.setAttribute("vendor", vendor);
             session.setAttribute("password", password);
             session.setAttribute("email", email);
+
+            String vendor = rdao.getVendor(vendor_id);
+            session.setAttribute("vendor", vendor);
+
+            String phone = rdao.getPhone(vendor_id);
+            session.setAttribute("phone", phone);
+
+            String address = rdao.getAddress(vendor_id);
+            session.setAttribute("address", address);
+
+
             request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
 
-            if("Log out".equals(request.getParameter("logout"))){
-                session.removeAttribute("vendor");
-                session.removeAttribute("email");
-                session.removeAttribute("password");
-                session.invalidate();
-                out.println("<a href=\"vendorLogin\">Log in</a>");
-            }
 
         }
 

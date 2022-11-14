@@ -54,11 +54,11 @@ public class RegisterDao {
 
     /**
      *
-     * @param address
-     * @param phone
+     * @param email
+     * @param pw
      * @return user id. Returns 0 if insert failed
      */
-    public int getUserID(String address, String phone){
+    public int getUserID(String email, String pw){
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
@@ -69,10 +69,12 @@ public class RegisterDao {
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
             while (rs.next()){
-
-                if(address.equals(rs.getString("address")) && phone.equals(rs.getString("phone"))){
-                    result = rs.getInt("user_id");
+                if(rs.getString("email") != null){
+                    if(email.equals(rs.getString("email")) && pw.equals(rs.getString("password"))){
+                        result = rs.getInt("user_id");
+                    }
                 }
+
             }
 
 
@@ -154,4 +156,77 @@ public class RegisterDao {
         }
         return result;
     }
+    public String getVendor(int vendor_id){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "SELECT * FROM vendors" ;
+        String result="";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            while (rs.next()){
+                if(vendor_id == rs.getInt("vendor_id")){
+                    result = rs.getString("vendor_name");
+                }
+            }
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            result = "Failed to retrieve vendor name";
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public String getPhone(int user_id){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "SELECT * FROM user" ;
+        String result="";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            while (rs.next()){
+                if(user_id == rs.getInt("user_id")){
+                    result = rs.getString("phone");
+                }
+            }
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            result = "Failed to retrieve phone number";
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public String getAddress(int user_id){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "SELECT * FROM user" ;
+        String result="";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            while (rs.next()){
+                if(user_id == rs.getInt("user_id")){
+                    result = rs.getString("address");
+                }
+            }
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            result = "Failed to retrieve address";
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 }

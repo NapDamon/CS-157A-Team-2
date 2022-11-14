@@ -1,6 +1,7 @@
 
 <%@ page import="java.sql.*" %>
-<%@ page import="com.example.egrocer.ProductsDao" %><%--
+<%@ page import="com.example.egrocer.ProductsDao" %>
+<%@ page import="com.example.egrocer.RegisterDao" %><%--
   Created by IntelliJ IDEA.
   User: Emant
   Date: 11/11/2022
@@ -11,8 +12,10 @@
 <html>
 <head>
     <title>eGrocer</title>
+  <style><%@include file="/WEB-INF/CSS/style.css"%></style>
 </head>
 <body>
+
 
 <%
 
@@ -23,38 +26,49 @@
     password = session.getAttribute("password").toString();
 
     ProductsDao pdao = new ProductsDao();
+
     int vendor_id = pdao.getVendorID(vendor);
-
-    out.println("<div><h3>Welcome, "+ vendor +"!</h3>");
 %>
-<form action="vendorOrders">
-  <input type="submit" value="View Orders">
-</form>
-    <form action="vendorLogin">
-    <input type="submit" value="Log out" name="logout">
-    </form></div>
 
-    <form action="vendorHome" method="post">
+<ul>
+  <li><a class="active" href="vendorHome">Home</a></li>
+  <li><a href="vendorOrders">Orders</a></li>
+  <li><a href="vendorAccount">Account</a></li>
+  <li style="float:right"><a href="logout">Log Out</a>
+  </li>
+</ul>
+<div >
+
+<%
+    out.println("<div><h3>Welcome, "+ vendor +"!</h3></div>");
+%>
+
+
+
+
+
+    <form action="vendorHome" method="post" class="addCard">
       <label>
         Product Name:
-        <input type="text" name="pname" required>
+        <input type="text" name="pname" required class="textfield2">
       </label>
       <label>
         Price:
-        <input type="text" name="price" required>
+        <input type="text" name="price" required class="textfield2">
       </label>
       <label>
         Quantity:
-        <input type="text" name="quantity" required>
+        <input type="text" name="quantity" required class="textfield2">
       </label>
       <%
         out.println("<input type=\"hidden\" name=\"vendor\" value=\"" + vendor +"\">");
       %>
 
-      <input type="submit" value="Add">
+      <input type="submit" value="Add" class="formBtn2">
     </form>
 
       <h4>Current products: </h4>
+
       <%
 
         String db = "egrocer";
@@ -69,59 +83,88 @@
           con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "root");
           stmt = con.createStatement();
           rs = stmt.executeQuery("SELECT * FROM products");
+
           while(rs.next()){
             if(vendor_id == rs.getInt("vendor_id")){
-              out.println("<form action=\"vendorHome\"> Product: "+rs.getString("product_name")+ " <input type=\"submit\" value=\"Edit\" name=\"editName"+ i+ "\">"
-              + "  Price: " +rs.getFloat("price")+ " <input type=\"submit\" value=\"Edit\" name=\"editPrice" +i +"\">"
-              +"  Quantity: "+ rs.getInt("quantity") + " <input type=\"submit\" value=\"Edit\" name=\"editQuantity"+ i+"\">");
-              out.println("<input type=\"submit\" value=\"Remove Product\" name=\"delete" +i +"\"></form>");
+              out.println("<form class=\"addCard\" action=\"vendorHome\">"
+              + "<label> Product: "+rs.getString("product_name")+ "</label>"
+              + "<label>  Price: " +rs.getFloat("price")+ "</label>"
+              +"<label>  Quantity: "+ rs.getInt("quantity") + "</label>");
+              out.println("<input class=\"formBtn2\" type=\"submit\" value=\"Edit Product\" name=\"edit" +i +"\">");
+              out.println("<input class=\"formBtn2\" type=\"submit\" value=\"Remove Product\" name=\"delete" +i +"\">");
+              out.println("</form>");
 
+              if("Edit Product".equals(request.getParameter("edit"+i))){
+                product_id = String.valueOf(rs.getInt("product_id"));
+                out.println("<form class=\"addCard\" method=\"post\" action=\"editProduct\">\n" +
+                        " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
+                        " <label>\n"+
+                        " New Product Name:\n" +
+                        " <input type=\"text\" name=\"newPname\" class=\"textfield2\">\n" +
+                        " </label>\n" +
+                        " <label>\n" +
+                        " New Product Price: \n" +
+                        " <input type=\"text\" name=\"newPrice\" class=\"textfield2\">\n" +
+                        " </label>\n" +
+                        " <label>\n" +
+                        " New Product Quantity:\n" +
+                        " <input type=\"text\" name=\"newQuantity\" class=\"textfield2\">\n" +
+                        " </label>\n" +
+                        " <input type=\"submit\" name=\"update\" value=\"Update\" class=\"formBtn2\">\n" +
+                        "<input type=\"submit\" name=\"cancel\" value=\"Cancel\" class=\"formBtn2\">\n" +
+                        " </form>");
+              }
               if("Remove Product".equals(request.getParameter("delete"+i))){
                 product_id = String.valueOf(rs.getInt("product_id"));
-                out.println("<form method=\"post\" action=\"deleteProduct\">\n" +
+                out.println("<form  class=\"addCard\" method=\"post\" action=\"deleteProduct\">\n" +
                         " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
                         " <label>\n" +
                         " Are you sure you want to proceed?\n" +
-                        " <input type=\"submit\" name=\"yes\" value=\"Yes\">\n" +
-                        " <input type=\"submit\" name=\"no\" value=\"Cancel\">\n" +
+                        " <input type=\"submit\" name=\"yes\" value=\"Yes\" class=\"formBtn2\">\n" +
+                        " <input type=\"submit\" name=\"no\" value=\"Cancel\" class=\"formBtn2\">\n" +
                         " </label>\n" +
                         " </form>");
-
               }
 
-              if("Edit".equals(request.getParameter("editPrice"+i))){
-                product_id = String.valueOf(rs.getInt("product_id"));
-                out.println("<form method=\"post\" action=\"editProduct\">\n" +
-                        " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
-                        " <label>\n" +
-                        " New Product Price:\n" +
-                        " <input type=\"text\" name=\"newPrice\">\n" +
-                        " </label>\n" +
-                        " <input type=\"submit\" value=\"Update\">\n" +
-                        " </form>");
-              }
-              if("Edit".equals(request.getParameter("editName"+i))){
-                product_id = String.valueOf(rs.getInt("product_id"));
-                out.println("<form method=\"post\" action=\"editProduct\">\n" +
-                        " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
-                        " <label>\n" +
-                        " New Product Name:\n" +
-                        " <input type=\"text\" name=\"newPname\">\n" +
-                        " </label>\n" +
-                        " <input type=\"submit\" value=\"Update\">\n" +
-                        " </form>");
-              }
-              if("Edit".equals(request.getParameter("editQuantity"+i))){
-                product_id = String.valueOf(rs.getInt("product_id"));
-                out.println("<form method=\"post\" action=\"editProduct\">\n" +
-                        " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
-                        " <label>\n" +
-                        " New Product Quantity:\n" +
-                        " <input type=\"text\" name=\"newQuantity\">\n" +
-                        " </label>\n" +
-                        " <input type=\"submit\" value=\"Update\">\n" +
-                        " </form>");
-              }
+//              if("Edit".equals(request.getParameter("editPrice"+i))){
+//                product_id = String.valueOf(rs.getInt("product_id"));
+//                out.println("<form class=\"addCard\">");
+//                out.println("<form  method=\"post\" action=\"editProduct\">\n" +
+//                        " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
+//                        " <label>\n" +
+//                        " New Product Price: \n" +
+//                        " <input type=\"text\" name=\"newPrice\" class=\"textfield2\">\n" +
+//                        " </label>\n" +
+//                        " <input type=\"submit\" value=\"Update\" class=\"formBtn2\">\n" +
+//                        " </form>");
+//                out.println("</form>");
+//              }
+//              if("Edit".equals(request.getParameter("editName"+i))){
+//                product_id = String.valueOf(rs.getInt("product_id"));
+//                out.println("<form class=\"addCard\">");
+//                out.println("<form  method=\"post\" action=\"editProduct\">\n" +
+//                        " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
+//                        " <label>\n" +
+//                        " New Product Name:\n" +
+//                        " <input type=\"text\" name=\"newPname\" class=\"textfield2\">\n" +
+//                        " </label>\n" +
+//                        " <input type=\"submit\" value=\"Update\" class=\"formBtn2\">\n" +
+//                        " </form>");
+//                out.println("</form>");
+//              }
+//              if("Edit".equals(request.getParameter("editQuantity"+i))){
+//                product_id = String.valueOf(rs.getInt("product_id"));
+//                out.println("<form class=\"addCard\">");
+//                out.println("<form  method=\"post\" action=\"editProduct\">\n" +
+//                        " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
+//                        " <label>\n" +
+//                        " New Product Quantity:\n" +
+//                        " <input type=\"text\" name=\"newQuantity\" class=\"textfield2\">\n" +
+//                        " </label>\n" +
+//                        " <input type=\"submit\" value=\"Update\" class=\"formBtn2\">\n" +
+//                        " </form>");
+//                out.println("</form>");
+//              }
               i++;
             }
           }
@@ -152,5 +195,6 @@
 
 %>
 
+</div>
 </body>
 </html>
