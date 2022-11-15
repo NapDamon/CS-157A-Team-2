@@ -9,23 +9,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="803ddbf0-436a-41ce-a586-102e6bf33e2b" name="Changes" comment="added vendor account page + fixed session attributes for login">
+    <list default="true" id="803ddbf0-436a-41ce-a586-102e6bf33e2b" name="Changes" comment="vendor can log in with phone or email">
+      <change afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/CustomerLogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/CustomerRegister.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerLogin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerRegistration.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/df651416-8b45-4281-88ae-102131ebfa46.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/df651416-8b45-4281-88ae-102131ebfa46.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/CustomerHome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/LogOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/LogOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/LoginServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/ProductsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/ProductsDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/RegisterDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/RegisterDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/UpdateOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/UpdateOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/SignupServlet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorRegister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CSS/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorLogin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorLogin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorOrders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorOrders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/Home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerHome.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/Login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/Signup.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorHome.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/HomeServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/LogOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/LogOut.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/LoginServlet.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/RegisterDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/RegisterDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/SignupServlet.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorRegister.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorLogin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorLogin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/Login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/Signup.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/LogOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/LogOut.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/LoginServlet.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/RegisterDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/RegisterDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/SignupServlet.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorRegister.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +54,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -194,7 +212,8 @@
       <workItem from="1668222748012" duration="9545000" />
       <workItem from="1668384750205" duration="14490000" />
       <workItem from="1668404230423" duration="8076000" />
-      <workItem from="1668460288580" duration="13165000" />
+      <workItem from="1668460288580" duration="13441000" />
+      <workItem from="1668479341386" duration="5285000" />
     </task>
     <task id="LOCAL-00001" summary="added display of vendor stock">
       <created>1666722399460</created>
@@ -280,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668470137106</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="vendor can log in with phone or email">
+      <created>1668473716315</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1668473716315</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,6 +332,7 @@
     <MESSAGE value="added status update functionality" />
     <MESSAGE value="added deleted product functionality + clean up" />
     <MESSAGE value="added vendor account page + fixed session attributes for login" />
-    <option name="LAST_COMMIT_MESSAGE" value="added vendor account page + fixed session attributes for login" />
+    <MESSAGE value="vendor can log in with phone or email" />
+    <option name="LAST_COMMIT_MESSAGE" value="vendor can log in with phone or email" />
   </component>
 </project>

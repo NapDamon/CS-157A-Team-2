@@ -126,45 +126,6 @@
                         " </form>");
               }
 
-//              if("Edit".equals(request.getParameter("editPrice"+i))){
-//                product_id = String.valueOf(rs.getInt("product_id"));
-//                out.println("<form class=\"addCard\">");
-//                out.println("<form  method=\"post\" action=\"editProduct\">\n" +
-//                        " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
-//                        " <label>\n" +
-//                        " New Product Price: \n" +
-//                        " <input type=\"text\" name=\"newPrice\" class=\"textfield2\">\n" +
-//                        " </label>\n" +
-//                        " <input type=\"submit\" value=\"Update\" class=\"formBtn2\">\n" +
-//                        " </form>");
-//                out.println("</form>");
-//              }
-//              if("Edit".equals(request.getParameter("editName"+i))){
-//                product_id = String.valueOf(rs.getInt("product_id"));
-//                out.println("<form class=\"addCard\">");
-//                out.println("<form  method=\"post\" action=\"editProduct\">\n" +
-//                        " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
-//                        " <label>\n" +
-//                        " New Product Name:\n" +
-//                        " <input type=\"text\" name=\"newPname\" class=\"textfield2\">\n" +
-//                        " </label>\n" +
-//                        " <input type=\"submit\" value=\"Update\" class=\"formBtn2\">\n" +
-//                        " </form>");
-//                out.println("</form>");
-//              }
-//              if("Edit".equals(request.getParameter("editQuantity"+i))){
-//                product_id = String.valueOf(rs.getInt("product_id"));
-//                out.println("<form class=\"addCard\">");
-//                out.println("<form  method=\"post\" action=\"editProduct\">\n" +
-//                        " <input type=\"hidden\" name=\"product_id\" value=\"" + product_id + "\">\n" +
-//                        " <label>\n" +
-//                        " New Product Quantity:\n" +
-//                        " <input type=\"text\" name=\"newQuantity\" class=\"textfield2\">\n" +
-//                        " </label>\n" +
-//                        " <input type=\"submit\" value=\"Update\" class=\"formBtn2\">\n" +
-//                        " </form>");
-//                out.println("</form>");
-//              }
               i++;
             }
           }
@@ -177,7 +138,6 @@
           out.println("SQLException caught: " + e.getMessage());
         }
 
-       // if("Edit".equals(request.getParameter("editName"))){
 
         %>
 

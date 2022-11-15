@@ -54,8 +54,7 @@ public class RegisterDao {
 
     /**
      *
-     * @param email
-     * @param pw
+     *
      * @return user id. Returns 0 if insert failed
      */
     public int getUserID(String email, String phone ,String pw){
@@ -105,6 +104,44 @@ public class RegisterDao {
         return result;
 
     }
+    public String insertCustomer(String customer_name, int user_id) {
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "insert into customers(customer_id, customer_name) values(?,?) ";
+        String result="Data Entered Successfully";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, user_id);
+            ps.setString(2, customer_name);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            result="Data Not Entered Successfully";
+            e.printStackTrace();
+        }
+        return result;
+
+    }
+    public String createCart(int customer_id){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "insert into own(customer_id) values(?) ";
+        String result="Cart Successfully Created";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, customer_id);
+            ps.executeUpdate();
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            result = "Cart Not Successfully Created";
+            e.printStackTrace();
+        }
+        return result;
+    }
     public String verifyUser(String email, String phone,String password) {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
@@ -135,7 +172,7 @@ public class RegisterDao {
 
     }
 
-    public String getVendor(int vendor_id){
+    public String getVendorName(int vendor_id){
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
@@ -155,6 +192,30 @@ public class RegisterDao {
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             result = "Failed to retrieve vendor name";
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public String getCustomerName(int customer_id){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "SELECT * FROM customers" ;
+        String result="";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            while (rs.next()){
+                if(customer_id == rs.getInt("customer_id")){
+                    result = rs.getString("customer_name");
+                }
+            }
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            result = "Failed to retrieve customer name";
             e.printStackTrace();
         }
         return result;
@@ -231,5 +292,31 @@ public class RegisterDao {
         }
         return result;
     }
+    public int getCartID(int customer_id){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "SELECT * FROM own" ;
+        int result=0;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            while (rs.next()){
+                if(rs.getString("email") != null){
+                    if(customer_id == rs.getInt("customer_id")){
+                        result = rs.getInt("cart_id");
+                    }
+                }
 
+            }
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return result;
+    }
 }

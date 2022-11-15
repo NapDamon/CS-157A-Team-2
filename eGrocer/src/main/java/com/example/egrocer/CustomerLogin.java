@@ -12,17 +12,19 @@ import java.io.PrintWriter;
 
 import static java.lang.System.out;
 
-@WebServlet(name = "vendorLogin", value = "/vendorLogin")
-public class VendorLogin extends HttpServlet {
+@WebServlet(name = "customerLogin", value = "/customerLogin")
+public class CustomerLogin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/VendorLogin.jsp").forward(request,response);
+        
+        request.getRequestDispatcher("/WEB-INF/CustomerLogin.jsp").forward(request,response);
+        
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String password=request.getParameter("vPassword");
-        String email=request.getParameter("vEmail");
-        String phone = request.getParameter("vPhone");
+        String password=request.getParameter("cPassword");
+        String email=request.getParameter("cEmail");
+        String phone = request.getParameter("cPhone");
         String result="";
 
         RegisterDao rdao=new RegisterDao();
@@ -33,26 +35,28 @@ public class VendorLogin extends HttpServlet {
 
         if(result.contains("User Validated Successfully") ){
 
-            int vendor_id = rdao.getUserID(email, phone,password);
+            int customer_id = rdao.getUserID(email, phone,password);
+            int cart_id = rdao.getCartID(customer_id);
 
             HttpSession session = request.getSession();
-            session.setAttribute("vendor_id", vendor_id);
+            session.setAttribute("cart_id", cart_id);
+            session.setAttribute("customer_id", customer_id);
             session.setAttribute("password", password);
 
-            email = rdao.getEmail(vendor_id);
+            email = rdao.getEmail(customer_id);
             session.setAttribute("email", email);
 
-            String vendor = rdao.getVendorName(vendor_id);
-            session.setAttribute("vendor", vendor);
+            String customer = rdao.getCustomerName(customer_id);
+            session.setAttribute("customer", customer);
 
-            phone = rdao.getPhone(vendor_id);
+            phone = rdao.getPhone(customer_id);
             session.setAttribute("phone", phone);
 
-            String address = rdao.getAddress(vendor_id);
+            String address = rdao.getAddress(customer_id);
             session.setAttribute("address", address);
 
 
-            request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
+            request.getRequestDispatcher("/WEB-INF/CustomerHome.jsp").forward(request,response);
 
 
         }

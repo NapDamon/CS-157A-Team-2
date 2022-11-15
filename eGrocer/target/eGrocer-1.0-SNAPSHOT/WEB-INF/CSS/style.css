@@ -56,7 +56,13 @@ input[type=submit]:hover {
 
     opacity: 0.8;
 }
+select{
+    padding: 12px 20px;
+    margin: 10px 0;
 
+    cursor: pointer;
+    width: available;
+}
 .textfield1{
     width: 100%;
     padding: 12px 20px;

@@ -69,6 +69,7 @@ public class ProductsDao {
         }
         return result;
     }
+
     public String addProducts(int vendor_id, String pname, float price, int quantity){
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);

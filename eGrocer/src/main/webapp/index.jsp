@@ -4,12 +4,13 @@
 <html>
 <head>
     <title>eGrocer</title>
+    <style><%@include file="/WEB-INF/CSS/style.css"%></style>
 </head>
 <body>
-<h1><%= "Welcome to eGrocer!" %>
-</h1>
+
+<header class="logo"><h1>Welcome to eGrocer!</h1></header>
 <br/>
-<div><a href="vendorLogin">Vendor Login</a></div>
-<div><a href="login-page">Customer Login</a></div>
+<div style="text-align: center;font-size: 20px"><a href="vendorLogin">Vendor Login</a></div><br>
+<div style="text-align: center;font-size: 20px"><a href="customerLogin">Customer Login</a></div>
 </body>
 </html>

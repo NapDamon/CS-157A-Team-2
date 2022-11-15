@@ -1136,19 +1136,19 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="317" parent="305" name="customers_id">
+    <column id="317" parent="305" name="customer_id">
       <AutoIncrement>22</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="318" parent="305" name="cust_name">
+    <column id="318" parent="305" name="customer_name">
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <index id="319" parent="305" name="PRIMARY">
-      <ColNames>customers_id</ColNames>
+      <ColNames>customer_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
@@ -1186,19 +1186,20 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="327" parent="307" name="customer_id">
+    <column id="327" parent="307" name="cart_id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="328" parent="307" name="cart_id">
+    <column id="328" parent="307" name="customer_id">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <index id="329" parent="307" name="PRIMARY">
-      <ColNames>customer_id
-cart_id</ColNames>
+      <ColNames>cart_id
+customer_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>

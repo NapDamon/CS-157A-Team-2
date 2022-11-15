@@ -27,7 +27,7 @@ public class LogOut extends HttpServlet {
             session.removeAttribute("vendor");
             session.removeAttribute("password");
             session.removeAttribute("email");
-            request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request,response);
+            request.getRequestDispatcher("/WEB-INF/CustomerLogin.jsp").forward(request,response);
         }
 
 
