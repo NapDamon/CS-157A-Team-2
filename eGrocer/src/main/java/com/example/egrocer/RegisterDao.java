@@ -58,7 +58,7 @@ public class RegisterDao {
      * @param pw
      * @return user id. Returns 0 if insert failed
      */
-    public int getUserID(String email, String pw){
+    public int getUserID(String email, String phone ,String pw){
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
@@ -70,7 +70,8 @@ public class RegisterDao {
             ResultSet rs = ps.getResultSet();
             while (rs.next()){
                 if(rs.getString("email") != null){
-                    if(email.equals(rs.getString("email")) && pw.equals(rs.getString("password"))){
+                    if(email.equals(rs.getString("email")) || phone.equals(rs.getString("phone"))
+                            && pw.equals(rs.getString("password"))){
                         result = rs.getInt("user_id");
                     }
                 }
@@ -104,7 +105,7 @@ public class RegisterDao {
         return result;
 
     }
-    public String verifyUser(String email, String password) {
+    public String verifyUser(String email, String phone,String password) {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
@@ -116,7 +117,8 @@ public class RegisterDao {
             ResultSet rs = ps.getResultSet();
             while(rs.next()){
                 if(rs.getString("email") != null){
-                    if(rs.getString("email").equals(email) && rs.getString("password").equals(password)){
+                    if((rs.getString("email").equals(email) || rs.getString("phone").equals(phone))
+                    && rs.getString("password").equals(password)){
                         return "User Validated Successfully";
                     }
                 }
@@ -132,30 +134,7 @@ public class RegisterDao {
         return result;
 
     }
-    public int getVendorID(String vendor){
-        String dbdriver = "com.mysql.jdbc.Driver";
-        loadDriver(dbdriver);
-        Connection con = getConnection();
-        String sql = "SELECT * FROM vendors" ;
-        int result=0;
-        try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.executeQuery();
-            ResultSet rs = ps.getResultSet();
-            while (rs.next()){
-                if(vendor.equals(rs.getString("vendor_name"))){
-                    result = rs.getInt("vendor_id");
-                }
-            }
 
-
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            result = 0;
-            e.printStackTrace();
-        }
-        return result;
-    }
     public String getVendor(int vendor_id){
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
@@ -224,6 +203,30 @@ public class RegisterDao {
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             result = "Failed to retrieve address";
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public String getEmail(int user_id){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "SELECT * FROM user" ;
+        String result="";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            while (rs.next()){
+                if(user_id == rs.getInt("user_id")){
+                    result = rs.getString("email");
+                }
+            }
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            result = "Failed to retrieve email";
             e.printStackTrace();
         }
         return result;

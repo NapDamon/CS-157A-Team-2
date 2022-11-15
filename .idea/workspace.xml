@@ -9,28 +9,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="803ddbf0-436a-41ce-a586-102e6bf33e2b" name="Changes" comment="added deleted product functionality + clean up">
-      <change afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/LogOut.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorAccount.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="803ddbf0-436a-41ce-a586-102e6bf33e2b" name="Changes" comment="added vendor account page + fixed session attributes for login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/EditProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/EditProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/LogOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/LogOut.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/RegisterDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/RegisterDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/UpdateOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/UpdateOrder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorRegister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CSS/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorHome.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorLogin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorLogin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorRegistration.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorRegistration.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/EditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/EditProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorHome.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorOrders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorOrders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/RegisterDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/RegisterDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorRegister.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorLogin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorLogin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorRegistration.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorRegistration.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/EditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/EditProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/RegisterDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/RegisterDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorRegister.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +194,7 @@
       <workItem from="1668222748012" duration="9545000" />
       <workItem from="1668384750205" duration="14490000" />
       <workItem from="1668404230423" duration="8076000" />
-      <workItem from="1668460288580" duration="9752000" />
+      <workItem from="1668460288580" duration="13165000" />
     </task>
     <task id="LOCAL-00001" summary="added display of vendor stock">
       <created>1666722399460</created>
@@ -278,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668399038329</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added vendor account page + fixed session attributes for login">
+      <created>1668470137106</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668470137106</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,6 +305,7 @@
     <MESSAGE value="vendor add and edit product done" />
     <MESSAGE value="added status update functionality" />
     <MESSAGE value="added deleted product functionality + clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="added deleted product functionality + clean up" />
+    <MESSAGE value="added vendor account page + fixed session attributes for login" />
+    <option name="LAST_COMMIT_MESSAGE" value="added vendor account page + fixed session attributes for login" />
   </component>
 </project>

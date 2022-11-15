@@ -24,26 +24,30 @@ public class VendorLogin extends HttpServlet {
 
         String password=request.getParameter("vPassword");
         String email=request.getParameter("vEmail");
-
-
+        String phone = request.getParameter("vPhone");
+        String result="";
 
         RegisterDao rdao=new RegisterDao();
-        String result=rdao.verifyUser(email, password);
+
+        result=rdao.verifyUser(email, phone, password);
         response.getWriter().println(result);
+
 
         if(result.contains("User Validated Successfully") ){
 
-            int vendor_id = rdao.getUserID(email, password);
+            int vendor_id = rdao.getUserID(email, phone,password);
 
             HttpSession session = request.getSession();
             session.setAttribute("vendor_id", vendor_id);
             session.setAttribute("password", password);
+
+            email = rdao.getEmail(vendor_id);
             session.setAttribute("email", email);
 
             String vendor = rdao.getVendor(vendor_id);
             session.setAttribute("vendor", vendor);
 
-            String phone = rdao.getPhone(vendor_id);
+            phone = rdao.getPhone(vendor_id);
             session.setAttribute("phone", phone);
 
             String address = rdao.getAddress(vendor_id);
@@ -54,6 +58,10 @@ public class VendorLogin extends HttpServlet {
 
 
         }
+
+
+
+
 
 
 

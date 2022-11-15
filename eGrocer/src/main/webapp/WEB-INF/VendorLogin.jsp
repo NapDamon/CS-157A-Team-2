@@ -19,9 +19,9 @@
 
         <label>
             Phone Number:
-            <input type="text" name="vnumber" class="textfield1">
+            <input type="text" name="vPhone" class="textfield1">
         </label>
-        <label>OR</label>
+        <br><br><div style="text-align: center"><label >OR</label></div><br>
         <label>
             Email:
             <input type="email" name="vEmail"  class="textfield1">
