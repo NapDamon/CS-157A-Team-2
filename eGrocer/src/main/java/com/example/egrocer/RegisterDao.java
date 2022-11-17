@@ -303,12 +303,9 @@ public class RegisterDao {
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
             while (rs.next()){
-                if(rs.getString("email") != null){
-                    if(customer_id == rs.getInt("customer_id")){
-                        result = rs.getInt("cart_id");
-                    }
+                if(customer_id == rs.getInt("customer_id")){
+                    result = rs.getInt("cart_id");
                 }
-
             }
 
 
@@ -316,7 +313,6 @@ public class RegisterDao {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
         return result;
     }
 }

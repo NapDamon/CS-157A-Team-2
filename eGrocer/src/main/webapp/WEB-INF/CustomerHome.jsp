@@ -9,6 +9,7 @@
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="com.example.egrocer.ProductsDao" %>
+<%@ page import="java.lang.*" %>
 <html>
 <head>
     <title>eGrocer</title>
@@ -21,6 +22,7 @@
     <li><a class="active" href="customerHome">Home</a></li>
     <li><a href="customerOrders">Orders</a></li>
     <li><a href="account">Account</a></li>
+    <li><a href="customerCart">Cart</a></li>
     <li style="float:right"><a href="logout">Log Out</a>
     </li>
 </ul>
@@ -37,7 +39,7 @@ if(session.getAttribute("customer")!= null){
     address = session.getAttribute("address").toString();
     cart_id = (int) session.getAttribute("cart_id");
 
-    out.println("<h3><label>Welcome " + session.getAttribute("customer") + "</label></h3>");
+    out.println("<h3><label>Welcome " + name + "</label></h3>");
 
 %>
 
@@ -52,8 +54,9 @@ if(session.getAttribute("customer")!= null){
             response.setContentType("text/html");
             PrintWriter output = response.getWriter();
             String db = "egrocer";
-            int update, vendor_id = 0;
-            String user;
+            int update, vendor_id = 0,product_id = 0, amount = 0;
+            float price = 0;
+            String user, productName = null;
             user = "root";
             ResultSet rs = null;
             int i =0;
@@ -88,6 +91,7 @@ if(session.getAttribute("customer")!= null){
             out.println("<h3><label> Currently Viewing: "+selectedVendor+"</label></h3>");
             ProductsDao pdao = new ProductsDao();
             vendor_id = pdao.getVendorID(selectedVendor);
+            session.setAttribute("selectedVendor",vendor_id);
         }
 
         stmt = con.createStatement();
@@ -97,11 +101,39 @@ if(session.getAttribute("customer")!= null){
             out.print(
                     "<form>"
                             + "<label>" + rs.getString("product_name") + "</label>" +
-                            "<label>$" + rs.getFloat("price") + "</label>"
-                            + "<label>Available: " + rs.getInt("quantity") + "</label> "
+                            "<input type=\"text\" style=\"display:none;\" name=\"product_name\" value=\"" + rs.getString("product_name") + "\">" +
+                            "<label>$" + rs.getFloat("price") + "</label>" +
+                            "<input type=\"text\" style=\"display:none;\" name=\"product_price\" value=\"" + rs.getFloat("price") + "\">" +
+                             "<label>Available: " + rs.getInt("quantity") + "</label> "
                             + "<input type=\"number\" name=\"amount\" style=\"width: 60px\" value=\"1\">" + "  "
                             + "<input type=\"submit\" class=\"formBtn2\" name = \"cart\" value=\"Add to cart\" >"
                             + "</form>");
+        }
+
+        String selectedProduct = request.getParameter("cart");
+        if(selectedProduct != null)
+        {
+            ProductsDao pdao = new ProductsDao();
+            productName = request.getParameter("product_name");
+            cart_id = (int) session.getAttribute("cart_id");
+            vendor_id = (int) session.getAttribute("selectedVendor");
+            product_id = pdao.getProductID(vendor_id,productName);
+            amount = Integer.parseInt(request.getParameter("amount"));
+            price = Float.parseFloat(request.getParameter("product_price"));
+            String sql = "INSERT INTO contains(cart_id,product_id,vendor_id,quantity,price) values(?,?,?,?,?)";
+            try{
+                PreparedStatement ps = con.prepareStatement(sql);
+                ps.setInt(1, cart_id);
+                ps.setInt(2, product_id);
+                ps.setInt(3, vendor_id);
+                ps.setInt(4, amount);
+                ps.setFloat(5, price);
+                ps.executeUpdate();
+            }
+            catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
 
         rs.close();
