@@ -12,8 +12,18 @@
   <style><%@include file="/WEB-INF/CSS/style.css"%></style>
 </head>
 <body>
+
+
 <%
-String vendor = session.getAttribute("vendor").toString();
+    String name ="";
+    if(session.getAttribute("vendor") != null){
+        name = session.getAttribute("vendor").toString();
+
+    }
+    if(session.getAttribute("customer") != null){
+        name = session.getAttribute("customer").toString();
+    }
+
 String email = session.getAttribute("email").toString();
 String phone = session.getAttribute("phone").toString();
 String address = session.getAttribute("address").toString();
@@ -21,7 +31,7 @@ String address = session.getAttribute("address").toString();
 <ul>
 <li><a href="vendorHome">Home</a></li>
 <li><a href="vendorOrders">Orders</a></li>
-<li><a class="active" href="vendorAccount">Account</a></li>
+<li><a class="active" href="account">Account</a></li>
 <li style="float:right"><a href="logout">Log Out</a>
 </li>
 </ul>
@@ -29,7 +39,8 @@ String address = session.getAttribute("address").toString();
 <div class="content">
  <div class="padding">
 <form class="Card" style="text-align: center">
-  <label>Vendor Name: <%out.println(vendor);%></label><br><br>
+
+  <label>Vendor Name: <%out.println(name);%></label><br><br>
   <label>Email: <%out.println(email);%></label><br><br>
   <label>Phone: <%out.println(phone);%></label><br><br>
   <label>Address: <%out.println(address);%></label>

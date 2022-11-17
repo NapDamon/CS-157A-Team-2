@@ -6,7 +6,7 @@ html{
 }
 label{
     padding: 20px;
-    width: min-content;
+    width: max-content;
     font-size: 20px;
 }
 .orderContent{
@@ -14,7 +14,7 @@ label{
     width: available;
     display: flex;
     justify-content: space-evenly;
-    /*align-content: center;*/
+
 }
 .content {
     width:available;

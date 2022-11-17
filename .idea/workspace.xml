@@ -9,15 +9,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="803ddbf0-436a-41ce-a586-102e6bf33e2b" name="Changes" comment="customer login and regisration set up + vendor selection fixed.">
+    <list default="true" id="803ddbf0-436a-41ce-a586-102e6bf33e2b" name="Changes" comment="fixed vendor order view and edit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/UpdateOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/UpdateOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/CustomerAccount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CSS/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerAccount.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerAccount.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerAccount.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerHome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorAccount.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorAccount.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorAccount.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/Account.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorHome.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorOrders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorOrders.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CustomerAccount.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CustomerAccount.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/CustomerAccount.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorAccount.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CustomerAccount.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CustomerHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CustomerHome.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorAccount.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorHome.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorAccount.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +196,8 @@
       <workItem from="1668404230423" duration="8076000" />
       <workItem from="1668460288580" duration="13441000" />
       <workItem from="1668479341386" duration="5823000" />
-      <workItem from="1668650518780" duration="17392000" />
+      <workItem from="1668650518780" duration="17686000" />
+      <workItem from="1668692487400" duration="1942000" />
     </task>
     <task id="LOCAL-00001" summary="added display of vendor stock">
       <created>1666722399460</created>
@@ -288,7 +297,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668484964544</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fixed vendor order view and edit">
+      <created>1668669027524</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668669027524</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fixed vendor order view and edit">
+      <created>1668669056807</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668669056807</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,6 +339,7 @@
     <MESSAGE value="added vendor account page + fixed session attributes for login" />
     <MESSAGE value="vendor can log in with phone or email" />
     <MESSAGE value="customer login and regisration set up + vendor selection fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="customer login and regisration set up + vendor selection fixed." />
+    <MESSAGE value="fixed vendor order view and edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed vendor order view and edit" />
   </component>
 </project>

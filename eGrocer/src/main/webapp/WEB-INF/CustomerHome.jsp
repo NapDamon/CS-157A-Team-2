@@ -20,7 +20,7 @@
 <ul>
     <li><a class="active" href="customerHome">Home</a></li>
     <li><a href="customerOrders">Orders</a></li>
-    <li><a href="customerAccount">Account</a></li>
+    <li><a href="account">Account</a></li>
     <li style="float:right"><a href="logout">Log Out</a>
     </li>
 </ul>

@@ -33,7 +33,7 @@
 <ul>
   <li><a class="active" href="vendorHome">Home</a></li>
   <li><a href="vendorOrders">Orders</a></li>
-  <li><a href="vendorAccount">Account</a></li>
+  <li><a href="account">Account</a></li>
   <li style="float:right"><a href="logout">Log Out</a>
   </li>
 </ul>

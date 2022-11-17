@@ -8,9 +8,14 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "CustomerAccount", value = "/customerAccount")
-public class CustomerAccount extends HttpServlet {
+@WebServlet(name = "account", value = "/account")
+public class Account extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.getRequestDispatcher("/WEB-INF/CustomerAccount.jsp").forward(request,response);
+
+
+
+        request.getRequestDispatcher("/WEB-INF/Account.jsp").forward(request,response);
+
+
     }
 }
