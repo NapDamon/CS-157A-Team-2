@@ -40,7 +40,7 @@ String address = session.getAttribute("address").toString();
  <div class="padding">
 <form class="Card" style="text-align: center">
 
-  <label>Vendor Name: <%out.println(name);%></label><br><br>
+  <label>Name: <%out.println(name);%></label><br><br>
   <label>Email: <%out.println(email);%></label><br><br>
   <label>Phone: <%out.println(phone);%></label><br><br>
   <label>Address: <%out.println(address);%></label>

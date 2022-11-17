@@ -37,7 +37,7 @@ if(session.getAttribute("customer")!= null){
     address = session.getAttribute("address").toString();
     cart_id = (int) session.getAttribute("cart_id");
 
-    out.println("<h3><label>Welcome " + session.getAttribute("customer") + "</label></h3>");
+    out.println("<h3><label>Welcome, " + session.getAttribute("customer") + "!</label></h3>");
 
 %>
 
