@@ -21,7 +21,7 @@ String address = session.getAttribute("address").toString();
 <ul>
 <li><a href="customerHome">Home</a></li>
 <li><a href="customerOrders">Orders</a></li>
-<li><a class="active" href="accountInfo">Account</a></li>
+<li><a class="active" href="/customerAccount">Account</a></li>
 <li style="float:right"><a href="logout">Log Out</a>
 </li>
 </ul>

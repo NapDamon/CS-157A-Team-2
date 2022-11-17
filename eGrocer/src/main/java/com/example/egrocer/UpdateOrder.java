@@ -50,6 +50,7 @@ public class UpdateOrder extends HttpServlet {
         }
 
         request.getRequestDispatcher("/WEB-INF/VendorOrders.jsp").forward(request,response);
+
         response.getWriter().println(result);
 
 
