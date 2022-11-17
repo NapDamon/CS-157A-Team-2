@@ -18,7 +18,7 @@
 <ul>
     <li><a href="vendorHome">Home</a></li>
     <li><a class="active" href="vendorOrders">Orders</a></li>
-    <li><a href="vendorAccount">Account</a></li>
+    <li><a href="account">Account</a></li>
     <li style="float:right"><a href="logout">Log Out</a>
     </li>
 </ul>
@@ -61,8 +61,8 @@
                     + "<label>Shipping Address: "+ rs.getString("address") + "</label>"
                     + "<label> Shipping Date: "+ rs.getString("shipping_date") + "</label>"
                     + "<label> Status: " + rs.getString("status") + "</label>"
-                    + "<input type=\"submit\" value=\"Update Status\" name=\"editStatus" +i+"\"class=\"formBtn2\">"
-                    + "<input type=\"submit\" value=\"Update Shipping Date\" name=\"editDate" +i+"\"class=\"formBtn2\">"
+                    + "<input type=\"submit\" value=\"Update Status\" name=\"editStatus" +i+"\"class=\"formBtn\">"
+                    + "<input type=\"submit\" value=\"Update Shipping Date\" name=\"editDate" +i+"\"class=\"formBtn\">"
                     + "</form>"
                 );
 

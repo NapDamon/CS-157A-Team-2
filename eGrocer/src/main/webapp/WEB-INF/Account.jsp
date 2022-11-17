@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: neenee
+  User: Emant
   Date: 11/14/2022
-  Time: 10:14 PM
+  Time: 3:01 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,28 +12,41 @@
   <style><%@include file="/WEB-INF/CSS/style.css"%></style>
 </head>
 <body>
+
+
 <%
-String customer = session.getAttribute("customer").toString();
+    String name ="";
+    if(session.getAttribute("vendor") != null){
+        name = session.getAttribute("vendor").toString();
+
+    }
+    if(session.getAttribute("customer") != null){
+        name = session.getAttribute("customer").toString();
+    }
+
 String email = session.getAttribute("email").toString();
 String phone = session.getAttribute("phone").toString();
 String address = session.getAttribute("address").toString();
 %>
 <ul>
-<li><a href="customerHome">Home</a></li>
-<li><a href="customerOrders">Orders</a></li>
-<li><a class="active" href="/customerAccount">Account</a></li>
+<li><a href="vendorHome">Home</a></li>
+<li><a href="vendorOrders">Orders</a></li>
+<li><a class="active" href="account">Account</a></li>
 <li style="float:right"><a href="logout">Log Out</a>
 </li>
 </ul>
+
 <div class="content">
  <div class="padding">
 <form class="Card" style="text-align: center">
-  <label>Customer Name: <%out.println(customer);%></label><br><br>
+
+  <label>Vendor Name: <%out.println(name);%></label><br><br>
   <label>Email: <%out.println(email);%></label><br><br>
   <label>Phone: <%out.println(phone);%></label><br><br>
   <label>Address: <%out.println(address);%></label>
 </form>
  </div>
 </div>
+
 </body>
 </html>
