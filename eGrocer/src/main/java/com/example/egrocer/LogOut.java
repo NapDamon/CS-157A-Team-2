@@ -21,13 +21,19 @@ public class LogOut extends HttpServlet {
             session.removeAttribute("vendor_id");
             session.removeAttribute("address");
             session.removeAttribute("phone");
-            request.getRequestDispatcher("/WEB-INF/VendorLogin.jsp").forward(request,response);
+            session.invalidate();
+            response.sendRedirect("vendorLogin");
         }
         if(session.getAttribute("customer") != null && !session.getAttribute("customer").equals("")){
-            session.removeAttribute("vendor");
+            session.removeAttribute("customer");
+            session.removeAttribute("cart_id");
+            session.removeAttribute("customer_id");
+            session.removeAttribute("address");
+            session.removeAttribute("phone");
             session.removeAttribute("password");
             session.removeAttribute("email");
-            request.getRequestDispatcher("/WEB-INF/CustomerLogin.jsp").forward(request,response);
+            session.invalidate();
+            response.sendRedirect("customerLogin");
         }
 
 

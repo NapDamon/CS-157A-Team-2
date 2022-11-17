@@ -36,27 +36,43 @@ public class CustomerLogin extends HttpServlet {
         if(result.contains("User Validated Successfully") ){
 
             int customer_id = rdao.getUserID(email, phone,password);
-            int cart_id = rdao.getCartID(customer_id);
-
-            HttpSession session = request.getSession();
-            session.setAttribute("cart_id", cart_id);
-            session.setAttribute("customer_id", customer_id);
-            session.setAttribute("password", password);
-
-            email = rdao.getEmail(customer_id);
-            session.setAttribute("email", email);
-
             String customer = rdao.getCustomerName(customer_id);
-            session.setAttribute("customer", customer);
-
-            phone = rdao.getPhone(customer_id);
-            session.setAttribute("phone", phone);
-
-            String address = rdao.getAddress(customer_id);
-            session.setAttribute("address", address);
 
 
-            request.getRequestDispatcher("/WEB-INF/CustomerHome.jsp").forward(request,response);
+            if (customer.equals("")) {
+                response.setContentType("text/html");
+
+                PrintWriter out = response.getWriter();
+                out.println("<html><body>");
+                out.println("<h3>" + "You are not a customer. Please log in <a href=\"vendorLogin\">here</a>" + "</h3>");
+                out.println("</body></html>");
+
+
+            }else{
+
+
+                int cart_id = rdao.getCartID(customer_id);
+
+                HttpSession session = request.getSession();
+
+                session.setAttribute("cart_id", cart_id);
+                session.setAttribute("customer", customer);
+                session.setAttribute("customer_id", customer_id);
+                session.setAttribute("password", password);
+
+                email = rdao.getEmail(customer_id);
+                session.setAttribute("email", email);
+
+
+                phone = rdao.getPhone(customer_id);
+                session.setAttribute("phone", phone);
+
+                String address = rdao.getAddress(customer_id);
+                session.setAttribute("address", address);
+
+
+                request.getRequestDispatcher("/WEB-INF/CustomerHome.jsp").forward(request,response);
+            }
 
 
         }

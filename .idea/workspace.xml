@@ -9,49 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8e5e78f-2dee-40b4-a916-9a5f784d185b" name="Changes" comment="modified LoginServlet and added Login.jsp">
-      <change afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/CustomerCart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerCart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="803ddbf0-436a-41ce-a586-102e6bf33e2b" name="Changes" comment="minor changes to Account.jsp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/RegisterDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/RegisterDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/CustomerLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/CustomerLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/LogOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/LogOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerHome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/CustomerHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/CustomerHome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/CustomerLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/CustomerLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/CustomerRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/CustomerRegister.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/DeleteProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/DeleteProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/EditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/EditProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/HelloServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/HelloServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/LogOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/LogOut.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/OrderDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/OrderDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/ProductsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/ProductsDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/RegisterDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/RegisterDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/UpdateOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/UpdateOrder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorHome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorOrders.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorOrders.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/VendorRegister.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/Account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/Account.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CustomerHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CustomerHome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorHome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/CustomerHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/CustomerHome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/CustomerLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/CustomerLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/CustomerRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/CustomerRegister.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/DeleteProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/DeleteProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/EditProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/EditProduct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/HelloServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/HelloServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/LogOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/LogOut.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/OrderDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/OrderDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/ProductsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/ProductsDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/RegisterDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/RegisterDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/UpdateOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/UpdateOrder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorHome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorOrders.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorOrders.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/VendorRegister.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerLogin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerLogin.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +25,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="Class" />
         <option value="Jsp File" />
       </list>
@@ -86,29 +51,29 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2GCNvL6VhuHNpbxGDhcLycsM9Jy" />
+  <component name="ProjectId" id="2GbzxcTMWPezAf2rZUhljdc2p35" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Emant/IdeaProjects/CS-157A-Team-2&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\napda\Documents\School\CS 157\Project\CS-157A-Team-2\eGrocer\src\main\webapp\WEB-INF" />
-      <recent name="C:\Users\napda\Documents\School\CS 157\Project\CS-157A-Team-2\eGrocer\src\main\webapp" />
-    </key>
-  </component>
+}</component>
   <component name="RunManager">
-    <configuration name="Tomcat 8.5.82" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.27" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 10.0.23" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.23" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="eGrocer:war exploded">
@@ -118,7 +83,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="c01b2b3a-dfda-465f-9525-c1a6cc78d311" />
+        <option name="BASE_DIRECTORY_NAME" value="4f5a2808-e8a8-4ad6-90ca-58b1fa1edc6c" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -126,7 +91,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="51278" />
+        <option name="DEBUG_PORT" value="59847" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -199,33 +164,174 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b8e5e78f-2dee-40b4-a916-9a5f784d185b" name="Changes" comment="" />
-      <created>1665888836384</created>
+      <changelist id="803ddbf0-436a-41ce-a586-102e6bf33e2b" name="Changes" comment="" />
+      <created>1666672319055</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1665888836384</updated>
-      <workItem from="1665888838518" duration="1428000" />
-      <workItem from="1666059234668" duration="10812000" />
-      <workItem from="1666725848383" duration="559000" />
-      <workItem from="1666726431195" duration="2253000" />
-      <workItem from="1668699006390" duration="390000" />
-      <workItem from="1668699398233" duration="16273000" />
+      <updated>1666672319055</updated>
+      <workItem from="1666672320258" duration="130000" />
+      <workItem from="1666716072273" duration="6519000" />
+      <workItem from="1666722624383" duration="263000" />
+      <workItem from="1666736185501" duration="291000" />
+      <workItem from="1666737453035" duration="1781000" />
+      <workItem from="1666755882832" duration="4383000" />
+      <workItem from="1667243300129" duration="76000" />
+      <workItem from="1668034405285" duration="4020000" />
+      <workItem from="1668147387072" duration="8799000" />
+      <workItem from="1668190748524" duration="4829000" />
+      <workItem from="1668201560785" duration="4382000" />
+      <workItem from="1668206636647" duration="14991000" />
+      <workItem from="1668222748012" duration="9545000" />
+      <workItem from="1668384750205" duration="14490000" />
+      <workItem from="1668404230423" duration="8076000" />
+      <workItem from="1668460288580" duration="13441000" />
+      <workItem from="1668479341386" duration="5823000" />
+      <workItem from="1668650518780" duration="17686000" />
+      <workItem from="1668692487400" duration="2029000" />
+      <workItem from="1668696045889" duration="92000" />
+      <workItem from="1668711753708" duration="2537000" />
     </task>
-    <task id="LOCAL-00001" summary="modified LoginServlet">
-      <created>1666127459479</created>
+    <task id="LOCAL-00001" summary="added display of vendor stock">
+      <created>1666722399460</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1666127459480</updated>
+      <updated>1666722399460</updated>
     </task>
-    <task id="LOCAL-00002" summary="modified LoginServlet and added Login.jsp">
-      <created>1666130601177</created>
+    <task id="LOCAL-00002" summary="fixed display of vendor stock">
+      <created>1666760028945</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1666130601177</updated>
+      <updated>1666760028945</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="vendor registration with session management done">
+      <created>1668195513408</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1668195513408</updated>
+    </task>
+    <task id="LOCAL-00004" summary="vendor Login with session management done">
+      <created>1668205689857</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668205689857</updated>
+    </task>
+    <task id="LOCAL-00005" summary="vendor Login with session management done">
+      <created>1668205842351</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1668205842351</updated>
+    </task>
+    <task id="LOCAL-00006" summary="vendor add and edit product done">
+      <created>1668221416617</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668221416617</updated>
+    </task>
+    <task id="LOCAL-00007" summary="vendor add and edit product done">
+      <created>1668221613292</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668221613292</updated>
+    </task>
+    <task id="LOCAL-00008" summary="vendor add and edit product done">
+      <created>1668221628589</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668221628589</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added status update functionality">
+      <created>1668232158676</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1668232158676</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added status update functionality">
+      <created>1668232175149</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668232175149</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added deleted product functionality + clean up">
+      <created>1668399038329</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1668399038329</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added vendor account page + fixed session attributes for login">
+      <created>1668470137106</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668470137106</updated>
+    </task>
+    <task id="LOCAL-00013" summary="vendor can log in with phone or email">
+      <created>1668473716315</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1668473716315</updated>
+    </task>
+    <task id="LOCAL-00014" summary="customer login and regisration set up + vendor selection fixed.">
+      <created>1668484964544</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668484964544</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fixed vendor order view and edit">
+      <created>1668669027524</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668669027524</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fixed vendor order view and edit">
+      <created>1668669056807</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668669056807</updated>
+    </task>
+    <task id="LOCAL-00017" summary="removed redundant files">
+      <created>1668694477991</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1668694477991</updated>
+    </task>
+    <task id="LOCAL-00018" summary="removed redundant files">
+      <created>1668694490306</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1668694490306</updated>
+    </task>
+    <task id="LOCAL-00019" summary="minor changes to Account.jsp">
+      <created>1668696110680</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1668696110680</updated>
+    </task>
+    <task id="LOCAL-00020" summary="minor changes to Account.jsp">
+      <created>1668696129453</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1668696129453</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,8 +349,19 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="modified LoginServlet" />
-    <MESSAGE value="modified LoginServlet and added Login.jsp" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified LoginServlet and added Login.jsp" />
+    <MESSAGE value="added display of vendor stock" />
+    <MESSAGE value="fixed display of vendor stock" />
+    <MESSAGE value="vendor registration with session management done" />
+    <MESSAGE value="vendor Login with session management done" />
+    <MESSAGE value="vendor add and edit product done" />
+    <MESSAGE value="added status update functionality" />
+    <MESSAGE value="added deleted product functionality + clean up" />
+    <MESSAGE value="added vendor account page + fixed session attributes for login" />
+    <MESSAGE value="vendor can log in with phone or email" />
+    <MESSAGE value="customer login and regisration set up + vendor selection fixed." />
+    <MESSAGE value="fixed vendor order view and edit" />
+    <MESSAGE value="removed redundant files" />
+    <MESSAGE value="minor changes to Account.jsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor changes to Account.jsp" />
   </component>
 </project>
