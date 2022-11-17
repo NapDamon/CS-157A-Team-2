@@ -17,13 +17,6 @@
 </head>
 <body>
 
-<ul>
-    <li><a class="active" href="customerHome">Home</a></li>
-    <li><a href="customerOrders">Orders</a></li>
-    <li><a href="account">Account</a></li>
-    <li style="float:right"><a href="logout">Log Out</a>
-    </li>
-</ul>
 
 <%
     String name, password, email, phone, address;
@@ -37,11 +30,21 @@ if(session.getAttribute("customer")!= null){
     address = session.getAttribute("address").toString();
     cart_id = (int) session.getAttribute("cart_id");
 
-    out.println("<h3><label>Welcome " + session.getAttribute("customer") + "</label></h3>");
+   
 
 %>
 
+<ul>
+    <li><a class="active" href="customerHome">Home</a></li>
+    <li><a href="customerOrders">Orders</a></li>
+    <li><a href="account">Account</a></li>
+    <li style="float:right"><a href="logout">Log Out</a>
+    </li>
+</ul>
 
+<%
+    out.println("<div><h3>Welcome, "+ name +"!</h3></div>");
+%>
 
 <form  action="customerHome">
     <br /><br />

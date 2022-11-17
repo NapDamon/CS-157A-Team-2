@@ -28,31 +28,43 @@ public class VendorLogin extends HttpServlet {
         RegisterDao rdao=new RegisterDao();
 
         result=rdao.verifyUser(email, phone, password);
-        response.getWriter().println(result);
+        //response.getWriter().println(result);
 
 
         if(result.contains("User Validated Successfully") ){
 
             int vendor_id = rdao.getUserID(email, phone,password);
-
-            HttpSession session = request.getSession();
-            session.setAttribute("vendor_id", vendor_id);
-            session.setAttribute("password", password);
-
-            email = rdao.getEmail(vendor_id);
-            session.setAttribute("email", email);
-
             String vendor = rdao.getVendorName(vendor_id);
-            session.setAttribute("vendor", vendor);
+            if (vendor.equals("")) {
+                response.setContentType("text/html");
 
-            phone = rdao.getPhone(vendor_id);
-            session.setAttribute("phone", phone);
+                // Hello
+                PrintWriter out = response.getWriter();
+                out.println("<html><body>");
+                out.println("<h3>" + "You are not a vendor. Please log in <a href=\"customerLogin\">here</a>" + "</h3>");
+                out.println("</body></html>");
 
-            String address = rdao.getAddress(vendor_id);
-            session.setAttribute("address", address);
+
+            }else{
+                HttpSession session = request.getSession();
+
+                session.setAttribute("vendor", vendor);
+                session.setAttribute("vendor_id", vendor_id);
+                session.setAttribute("password", password);
+
+                email = rdao.getEmail(vendor_id);
+                session.setAttribute("email", email);
 
 
-            request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
+                phone = rdao.getPhone(vendor_id);
+                session.setAttribute("phone", phone);
+
+                String address = rdao.getAddress(vendor_id);
+                session.setAttribute("address", address);
+
+
+                request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
+            }
 
 
         }
