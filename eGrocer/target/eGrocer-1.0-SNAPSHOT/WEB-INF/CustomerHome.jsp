@@ -94,15 +94,14 @@ if(session.getAttribute("customer")!= null){
 
         rs = stmt.executeQuery("SELECT * FROM products WHERE vendor_id =" + vendor_id);
         while (rs.next()){
-                out.println(
-                         "<label>" + rs.getString("product_name")
-                        + ", </label>" +
-                        "<label>$" +rs.getFloat("price")
-                        +"</label> " +"<input type=\"submit\" class=\"formBtn2\" name = \"cart\" value=\"Add to cart\">" + "<br/><br/>"
-                         );
-                if(request.getParameter("cart") != null){
-                    update = stmt.executeUpdate("INSERT INTO cart (cart_id, product_id)VALUES(" + cart_id + "," + rs.getString("product_id") + ")");
-                }
+            out.print(
+                    "<form>"
+                            + "<label>" + rs.getString("product_name") + "</label>" +
+                            "<label>$" + rs.getFloat("price") + "</label>"
+                            + "<label>Available: " + rs.getInt("quantity") + "</label> "
+                            + "<input type=\"number\" name=\"amount\" style=\"width: 60px\" value=\"1\">" + "  "
+                            + "<input type=\"submit\" class=\"formBtn2\" name = \"cart\" value=\"Add to cart\" >"
+                            + "</form>");
         }
 
         rs.close();
