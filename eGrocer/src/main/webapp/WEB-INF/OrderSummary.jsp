@@ -58,7 +58,7 @@
             </div>
             <label for="cname">Name on Card</label>
             <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-            <label for="ccnum">Credit card number</label>
+            <label for="ccnum">Card number</label>
             <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
             <label for="expmonth">Exp Month</label>
             <input type="text" id="expmonth" name="expmonth" placeholder="September">
@@ -132,7 +132,7 @@
       
        while(rs.next()){
                 out.println(
-                    "<form class=\"orderCard\" action=\"vendorOrders\"style=\"flex-direction: column\">"
+                    "<form>"
                     + "<label>Full Name         : " + rs.getString("name") + "</label>"
                     + "<label>Email             : " + rs.getString("email") + "</label>"
                     + "<label>Address           : " + rs.getString("address") + "</label>"
@@ -140,7 +140,7 @@
                     + "<label>State             : " + rs.getString("state") + "</label>"
                     + "<label>Zip Code          : " + rs.getInt("zip_code") + "</label>"
                     + "<label>Name on Card      : " + rs.getString("name_card") + "</label>"
-                    + "<label>Credit Card Number: " + rs.getString("card_num") + "</label>"
+                    + "<label>Card Number       : " + rs.getString("card_num") + "</label>"
                     + "<label>Exp Month         : " + rs.getInt("exp_month") + "</label>"
                     + "<label>Exp Date          : " + rs.getInt("exp_date") + "</label>"
                     + "<label>CVV               : " + rs.getInt("cvv") + "</label>"
