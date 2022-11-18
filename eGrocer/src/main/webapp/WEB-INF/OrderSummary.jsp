@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<h2>Check Out</h2>
+<h2>Order Summary</h2>
 
 <div class="row">
   <div class="col-75">
