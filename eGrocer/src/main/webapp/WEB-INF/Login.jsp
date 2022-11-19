@@ -19,16 +19,16 @@
 
         <label>
             Phone Number:
-            <input type="text" name="vPhone" class="textfield1">
+            <input type="text" name="Phone" class="textfield1">
         </label>
         <br><br><div style="text-align: center"><label >OR</label></div><br>
         <label>
             Email:
-            <input type="email" name="vEmail"  class="textfield1">
+            <input type="email" name="Email"  class="textfield1">
         </label>
         <label>
             Password:
-            <input type="password" name="vPassword" required class="textfield1">
+            <input type="password" name="Password" required class="textfield1">
         </label>
         <label>Are you a vendor?
         <input type="checkbox" name="isVendor" value="true">

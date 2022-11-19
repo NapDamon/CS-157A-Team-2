@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.egrocer.RegisterDao" %><%--
   Created by IntelliJ IDEA.
   User: Emant
   Date: 11/14/2022
@@ -60,7 +60,45 @@ if(session.getAttribute("vendor") != null){
   <label>Email: <%out.println(email);%></label><br><br>
   <label>Phone: <%out.println(phone);%></label><br><br>
   <label>Address: <%out.println(address);%></label>
+    <input type="submit" name="changePW" value="Change Password" class="formBtn2">
 </form>
+    <%
+
+    if("Change Password".equals(request.getParameter("changePW"))){
+        out.println(
+
+                        "     <form action=\"account\" method=\"post\" class=\"Card\" style=\"text-align: center\">\n" +
+                        "         <label> \n" +
+                        "             Current Password: \n" +
+                        "             <input type=\"password\" name=\"currentPW\"class=\"textfield1\">\n" +
+                        "         </label>\n" +
+                        "         <label> \n" +
+                        "             New Password: \n" +
+                        "             <input type=\"password\" name=\"newPW\" class=\"textfield1\">\n" +
+                        "         </label>\n" +
+                        "         <input type=\"submit\" name=\"updatePW\" value=\"Update\" class=\"formBtn2\">\n" +
+                        "         \n" +
+                        "     </form>"
+        );
+    }
+
+  if(request.getAttribute("correctPW") != null && request.getAttribute("correctPW").equals("false")){
+      out.println("<label>Current password is incorrect</label>");
+      request.setAttribute("correctPW", "false");
+  }
+  if(request.getAttribute("changed") != null && request.getAttribute("changed").equals("true")){
+      out.println("<label>Successfully changed password.</label>");
+      request.setAttribute("changed", "false");
+  }
+
+
+
+    %>
+
+
+
+
+
  </div>
 </div>
 

@@ -18,9 +18,9 @@ public class Login extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String password=request.getParameter("vPassword");
-        String email=request.getParameter("vEmail");
-        String phone = request.getParameter("vPhone");
+        String password=request.getParameter("Password");
+        String email=request.getParameter("Email");
+        String phone = request.getParameter("Phone");
         String isVendor = request.getParameter("isVendor");
         String result="";
         String username= "";
