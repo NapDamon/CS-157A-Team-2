@@ -18,14 +18,6 @@
 </head>
 <body>
 
-<ul>
-    <li><a class="active" href="customerHome">Home</a></li>
-    <li><a href="customerOrders">Orders</a></li>
-    <li><a href="account">Account</a></li>
-    <li><a href="customerCart">Cart</a></li>
-    <li style="float:right"><a href="logout">Log Out</a>
-    </li>
-</ul>
 
 <%
     String name, password, email, phone, address;
@@ -39,11 +31,22 @@ if(session.getAttribute("customer")!= null){
     address = session.getAttribute("address").toString();
     cart_id = (int) session.getAttribute("cart_id");
 
-    out.println("<h3><label>Welcome " + name + "</label></h3>");
+   
 
 %>
 
+<ul>
+    <li><a class="active" href="customerHome">Home</a></li>
+    <li><a href="customerOrders">Orders</a></li>
+    <li><a href="account">Account</a></li>
+    <li><a href="customerCart">Cart</a></li>
+    <li style="float:right"><a href="logout">Log Out</a>
+    </li>
+</ul>
 
+<%
+    out.println("<div><h3>Welcome, "+ name +"!</h3></div>");
+%>
 
 <form  action="customerHome">
     <br /><br />
@@ -93,22 +96,27 @@ if(session.getAttribute("customer")!= null){
             vendor_id = pdao.getVendorID(selectedVendor);
             session.setAttribute("selectedVendor",vendor_id);
         }
+        try{
+            stmt = con.createStatement();
 
-        stmt = con.createStatement();
-
-        rs = stmt.executeQuery("SELECT * FROM products WHERE vendor_id =" + vendor_id);
-        while (rs.next()){
-            out.print(
-                    "<form>"
-                            + "<label>" + rs.getString("product_name") + "</label>" +
-                            "<input type=\"text\" style=\"display:none;\" name=\"product_name\" value=\"" + rs.getString("product_name") + "\">" +
-                            "<label>$" + rs.getFloat("price") + "</label>" +
-                            "<input type=\"text\" style=\"display:none;\" name=\"product_price\" value=\"" + rs.getFloat("price") + "\">" +
-                             "<label>Available: " + rs.getInt("quantity") + "</label> "
-                            + "<input type=\"number\" name=\"amount\" style=\"width: 60px\" value=\"1\">" + "  "
-                            + "<input type=\"submit\" class=\"formBtn2\" name = \"cart\" value=\"Add to cart\" >"
-                            + "</form>");
+            rs = stmt.executeQuery("SELECT * FROM products WHERE vendor_id =" + vendor_id);
+            while (rs.next()){
+                out.print(
+                        "<form>"
+                                + "<label>" + rs.getString("product_name") + "</label>" +
+                                "<input type=\"text\" style=\"display:none;\" name=\"product_name\" value=\"" + rs.getString("product_name") + "\">" +
+                                "<label>$" + rs.getFloat("price") + "</label>" +
+                                "<input type=\"text\" style=\"display:none;\" name=\"product_price\" value=\"" + rs.getFloat("price") + "\">" +
+                                "<label>Available: " + rs.getInt("quantity") + "</label> "
+                                + "<input type=\"number\" name=\"amount\" style=\"width: 60px\" value=\"1\">" + "  "
+                                + "<input type=\"submit\" class=\"formBtn2\" name = \"cart\" value=\"Add to cart\" >"
+                                + "</form>");
+            }
+        }catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
+
 
         String selectedProduct = request.getParameter("cart");
         if(selectedProduct != null)

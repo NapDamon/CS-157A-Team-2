@@ -15,7 +15,7 @@
 <header class="logo"><h1>eGrocer</h1></header>
 <div class="content">
 
-    <form method = "post" action = "vendorLogin" class="Card" >
+    <form method = "post" action = "Login" class="Card" >
 
         <label>
             Phone Number:
@@ -30,9 +30,12 @@
             Password:
             <input type="password" name="vPassword" required class="textfield1">
         </label>
+        <label>Are you a vendor?
+        <input type="checkbox" name="isVendor" value="true">
+        </label>
         <input type="submit" value="Log in" class="formBtn">
 
-        <div>Don't have an account? Sign up <a href="vendorRegistration">here</a></div>
+        <div>Don't have an account? Sign up <a href="Registration">here</a></div>
     </form>
 </div>
 
