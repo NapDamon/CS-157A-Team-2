@@ -36,7 +36,24 @@
         <input type="submit" value="Log in" class="formBtn">
 
         <div>Don't have an account? Sign up <a href="Registration">here</a></div>
+        <div style="padding-top: 16px; color: red">
+            <%
+                if(request.getAttribute("invalidCreds") != null && request.getAttribute("invalidCreds").equals("true")){
+                    out.println("<label>Invalid Credentials</label>");
+
+                }
+                if(request.getAttribute("vendor") != null && request.getAttribute("vendor").equals("false")){
+                    out.println("<label>You are not a vendor.</label>");
+
+                }
+                if(request.getAttribute("customer") != null && request.getAttribute("customer").equals("false")){
+                    out.println("<label>You are not a customer.</label>");
+
+                }
+            %>
+        </div>
     </form>
+
 </div>
 
 </body>

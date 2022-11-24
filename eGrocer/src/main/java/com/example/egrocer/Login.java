@@ -70,57 +70,29 @@ public class Login extends HttpServlet {
                 jsp = "/WEB-INF/CustomerHome.jsp";
                 request.getRequestDispatcher(jsp).forward(request,response);
             }else if(isVendor != null){
-                response.setContentType("text/html");
-                PrintWriter out = response.getWriter();
-                out.println("<html><body>");
-                out.println("<h3>" + "You are not a vendor." + "</h3>");
-                out.println("</body></html>");
+                request.setAttribute("vendor", "false");
+                request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request,response);
+//                response.setContentType("text/html");
+//                PrintWriter out = response.getWriter();
+//                out.println("<html><body>");
+//                out.println("<h3>" + "You are not a vendor." + "</h3>");
+//                out.println("</body></html>");
             }else {
-                response.setContentType("text/html");
-                PrintWriter out = response.getWriter();
-                out.println("<html><body>");
-                out.println("<h3>" + "You are not a customer." + "</h3>");
-                out.println("</body></html>");
+                request.setAttribute("customer", "false");
+                request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request,response);
+//                response.setContentType("text/html");
+//                PrintWriter out = response.getWriter();
+//                out.println("<html><body>");
+//                out.println("<h3>" + "You are not a customer." + "</h3>");
+//                out.println("</body></html>");
 
             }
 
 
 
-
-
-//
-//            if (vendor.equals("")) {
-//                response.setContentType("text/html");
-//
-//                // Hello
-//                PrintWriter out = response.getWriter();
-//                out.println("<html><body>");
-//                out.println("<h3>" + "You are not a vendor. Please log in <a href=\"customerLogin\">here</a>" + "</h3>");
-//                out.println("</body></html>");
-//
-//
-//            }else{
-//                HttpSession session = request.getSession();
-//
-//                session.setAttribute("vendor", vendor);
-//                session.setAttribute("vendor_id", vendor_id);
-//                session.setAttribute("password", password);
-//
-//                email = rdao.getEmail(vendor_id);
-//                session.setAttribute("email", email);
-//
-//
-//                phone = rdao.getPhone(vendor_id);
-//                session.setAttribute("phone", phone);
-//
-//                String address = rdao.getAddress(vendor_id);
-//                session.setAttribute("address", address);
-//
-//
-//                request.getRequestDispatcher("/WEB-INF/VendorHome.jsp").forward(request,response);
-//            }
-
-
+        }else if(result.equals("Bad Credentials")){
+            request.setAttribute("invalidCreds", "true");
+            request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request,response);
         }
 
 

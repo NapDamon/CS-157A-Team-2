@@ -6,8 +6,8 @@ html{
 }
 label{
     padding: 20px;
-    width: max-content;
-    font-size: 20px;
+    width: fit-content;
+    font-size: 16px;
 }
 .orderContent{
     padding: 5%;
@@ -25,6 +25,7 @@ label{
 }
 .addCard{
     display: flex;
+
     justify-content: space-evenly;
     border-radius: 25px;
     background: whitesmoke;
@@ -66,6 +67,7 @@ label{
     border: none;
     cursor: pointer;
     width: 100%;
+
 }
 .formBtn2 {
     background-color: #04AA6D;
@@ -77,6 +79,17 @@ label{
     height: 60px;
     width: 200px;
 }
+.formBtn3 {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    height: 60px;
+    width: fit-content;
+}
+
 input[type=submit]:hover {
 
     opacity: 0.8;

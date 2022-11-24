@@ -84,11 +84,11 @@ if(session.getAttribute("vendor") != null){
 
   if(request.getAttribute("correctPW") != null && request.getAttribute("correctPW").equals("false")){
       out.println("<label>Current password is incorrect</label>");
-      request.setAttribute("correctPW", "false");
+
   }
   if(request.getAttribute("changed") != null && request.getAttribute("changed").equals("true")){
       out.println("<label>Successfully changed password.</label>");
-      request.setAttribute("changed", "false");
+
   }
 
 

@@ -67,7 +67,7 @@
       <input type="submit" value="Add" class="formBtn2">
     </form>
 
-      <h4>Current products: </h4>
+      <h4>Your Inventory: </h4>
 
       <%
 
