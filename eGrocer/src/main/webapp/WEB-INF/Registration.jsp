@@ -16,26 +16,29 @@
 <header class="logo"><h1>eGrocer</h1></header>
 <div class="content">
 
-  <form method = "post" action = "vendorRegistration" class="Card">
+  <form method = "post" action = "Registration" class="Card">
     <label>
-      Vendor Name:
-      <input type="text" name="vName" required class="textfield1">
+      Name:
+      <input type="text" name="Name" required class="textfield1">
     </label>
     <label>
       Email:
-      <input type="email" name="vEmail" required class="textfield1">
+      <input type="email" name="Email" required class="textfield1">
     </label>
     <label>
       Phone:
-      <input type="text" name="vPhone" required class="textfield1">
+      <input type="text" name="Phone" required class="textfield1">
     </label>
     <label>
       Address:
-      <input type="text" name="vAddress" required class="textfield1">
+      <input type="text" name="Address" required class="textfield1">
     </label>
     <label>
       Password:
-      <input type="password" name="vPassword" required class="textfield1">
+      <input type="password" name="Password" required class="textfield1">
+    </label>
+    <label>Are you a vendor?
+      <input type="checkbox" name="isVendor" value="true">
     </label>
     <input type="submit" value="Register" class="formBtn">
   </form>

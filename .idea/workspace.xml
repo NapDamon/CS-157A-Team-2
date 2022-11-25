@@ -9,13 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="803ddbf0-436a-41ce-a586-102e6bf33e2b" name="Changes" comment="minor changes to Account.jsp">
+    <list default="true" id="803ddbf0-436a-41ce-a586-102e6bf33e2b" name="Changes" comment="added change password functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/CustomerLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/CustomerLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/LogOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/LogOut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerHome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerLogin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerLogin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/Account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/Account.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CSS/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/Login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/Login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorHome.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorOrders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorOrders.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +190,11 @@
       <workItem from="1668650518780" duration="17686000" />
       <workItem from="1668692487400" duration="2029000" />
       <workItem from="1668696045889" duration="92000" />
-      <workItem from="1668711753708" duration="2537000" />
+      <workItem from="1668711753708" duration="2941000" />
+      <workItem from="1668757414081" duration="1017000" />
+      <workItem from="1668816213585" duration="12766000" />
+      <workItem from="1668990765823" duration="1233000" />
+      <workItem from="1669247106613" duration="2827000" />
     </task>
     <task id="LOCAL-00001" summary="added display of vendor stock">
       <created>1666722399460</created>
@@ -331,7 +336,42 @@
       <option name="project" value="LOCAL" />
       <updated>1668696129453</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="fixed vendors and customers logging in through wrong form">
+      <created>1668714669436</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1668714669436</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fixed vendors and customers logging in through wrong form">
+      <created>1668714681303</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1668714681303</updated>
+    </task>
+    <task id="LOCAL-00023" summary="combined customer and vendor login/registration to minimize redundancy">
+      <created>1668822658151</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1668822658151</updated>
+    </task>
+    <task id="LOCAL-00024" summary="combined customer and vendor login/registration to minimize redundancy">
+      <created>1668822672586</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1668822672586</updated>
+    </task>
+    <task id="LOCAL-00025" summary="added change password functionality">
+      <created>1668828964649</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1668828964649</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,6 +402,9 @@
     <MESSAGE value="fixed vendor order view and edit" />
     <MESSAGE value="removed redundant files" />
     <MESSAGE value="minor changes to Account.jsp" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes to Account.jsp" />
+    <MESSAGE value="fixed vendors and customers logging in through wrong form" />
+    <MESSAGE value="combined customer and vendor login/registration to minimize redundancy" />
+    <MESSAGE value="added change password functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="added change password functionality" />
   </component>
 </project>

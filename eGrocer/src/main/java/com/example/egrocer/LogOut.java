@@ -21,8 +21,8 @@ public class LogOut extends HttpServlet {
             session.removeAttribute("vendor_id");
             session.removeAttribute("address");
             session.removeAttribute("phone");
-            session.invalidate();
-            response.sendRedirect("vendorLogin");
+           // session.invalidate();
+            response.sendRedirect("Login");
         }
         if(session.getAttribute("customer") != null && !session.getAttribute("customer").equals("")){
             session.removeAttribute("customer");
@@ -32,8 +32,8 @@ public class LogOut extends HttpServlet {
             session.removeAttribute("phone");
             session.removeAttribute("password");
             session.removeAttribute("email");
-            session.invalidate();
-            response.sendRedirect("customerLogin");
+          //  session.invalidate();
+            response.sendRedirect("Login");
         }
 
 

@@ -23,10 +23,10 @@
     </li>
 </ul>
 
-<div class="orderContent">
+<%--<div class="orderContent">--%>
 <%--<div class="padding">--%>
 
-
+<h4>Your Orders: </h4>
 <%
     int vendor_id = (int) session.getAttribute("vendor_id");
 
@@ -53,16 +53,16 @@
         while(rs.next()){
 
                 out.println(
-                    "<form class=\"orderCard\" action=\"vendorOrders\"style=\"flex-direction: column\">"
+                    "<form class=\"addCard\" action=\"vendorOrders\">"
                     + "<label>Order Number: "+ rs.getInt("order_num") + "</label>"
                     + "<label>Order Date: "+ rs.getString("order_date") + "</label>"
-                    + "<label>Cost: "+ rs.getString("amount") + "</label>"
+                    + "<label>Total Cost: $"+ rs.getString("amount") + "</label>"
                     + "<label> Shipment ID: " + rs.getInt("shipment_id") + "</label>"
                     + "<label>Shipping Address: "+ rs.getString("address") + "</label>"
                     + "<label> Shipping Date: "+ rs.getString("shipping_date") + "</label>"
                     + "<label> Status: " + rs.getString("status") + "</label>"
-                    + "<input type=\"submit\" value=\"Update Status\" name=\"editStatus" +i+"\"class=\"formBtn\">"
-                    + "<input type=\"submit\" value=\"Update Shipping Date\" name=\"editDate" +i+"\"class=\"formBtn\">"
+                    + "<input type=\"submit\" value=\"Update Status\" name=\"editStatus" +i+"\"class=\"formBtn3\">"
+                    + "<input type=\"submit\" value=\"Update Shipping Date\" name=\"editDate" +i+"\"class=\"formBtn3\">"
                     + "</form>"
                 );
 
@@ -72,7 +72,7 @@
                     out.println("<form class=\"addCard\" method=\"post\" action=\"updateOrder\" >\n" +
                             " <input type=\"hidden\" name=\"order_num\" value=\"" + order_num + "\">\n" +
                             " <label>\n" +
-                            " New Status:\n" +
+                            " New Shipping Date:\n" +
                             " <input type=\"text\" name=\"newDate\"class=\"textfield2\">\n" +
                             " </label>\n" +
                             " <input type=\"submit\" name=\"update\" value=\"Update\"class=\"formBtn2\">\n" +
@@ -106,7 +106,7 @@
 
 
 %>
-</div>
+<%--</div>--%>
 <%--</div>--%>
 </body>
 </html>

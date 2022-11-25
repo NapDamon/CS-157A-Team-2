@@ -10,7 +10,7 @@
 
 <header class="logo"><h1>Welcome to eGrocer!</h1></header>
 <br/>
-<div style="text-align: center;font-size: 20px"><a href="vendorLogin">Vendor Login</a></div><br>
-<div style="text-align: center;font-size: 20px"><a href="customerLogin">Customer Login</a></div>
+<div style="text-align: center;font-size: 20px"><a href="Login">Login</a></div><br>
+
 </body>
 </html>

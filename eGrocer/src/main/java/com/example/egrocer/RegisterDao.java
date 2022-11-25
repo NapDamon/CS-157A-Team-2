@@ -315,4 +315,101 @@ public class RegisterDao {
         }
         return result;
     }
+    public String getPassword(int user_id){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "SELECT * FROM user WHERE user_id=?" ;
+        String result= "";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,user_id);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+
+            while(rs.next()){
+                result = rs.getString("password");
+            }
+
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public String changePassword(String newPW, int user_id) throws SQLException {
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        con.setAutoCommit(false);
+        String sql = "UPDATE user SET password = ? WHERE user_id=?";
+
+        String result="Data Updated Successfully";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, newPW);
+            ps.setInt(2, user_id);
+            ps.executeUpdate();
+            con.commit();
+            ps.close();
+            con.close();
+
+        } catch (SQLException e) {
+
+
+            result="Data Not Updated Successfully";
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public int getVendorID(String vendor){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "SELECT * FROM vendors" ;
+        int result=0;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            while (rs.next()){
+                if(vendor.equals(rs.getString("vendor_name"))){
+                    result = rs.getInt("vendor_id");
+                }
+            }
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            result = 0;
+            e.printStackTrace();
+        }
+        return result;
+    }
+    public int getCustomerID(String customer){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "SELECT * FROM customers" ;
+        int result=0;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            while (rs.next()){
+                if(customer.equals(rs.getString("customer_name"))){
+                    result = rs.getInt("customer_id");
+                }
+            }
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            result = 0;
+            e.printStackTrace();
+        }
+        return result;
+    }
 }
