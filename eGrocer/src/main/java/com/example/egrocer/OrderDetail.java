@@ -1,3 +1,4 @@
+package com.example.egrocer;
 public class OrderDetail {
     private String itemName;
     private float subtotal;

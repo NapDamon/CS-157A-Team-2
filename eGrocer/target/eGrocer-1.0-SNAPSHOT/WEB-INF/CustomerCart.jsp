@@ -42,6 +42,7 @@
   Connection con = null;
   String name, password, email, phone, address;
   int cart_id, customer_id;
+  ProductsDao pDao = new ProductsDao();
 
   try {
     Class.forName("com.mysql.jdbc.Driver");
@@ -65,9 +66,10 @@
 
       rs = stmt.executeQuery("SELECT * FROM contains WHERE cart_id = " + cart_id);
       while (rs.next()){
+        productName = pDao.getProductName(rs.getInt("product_id"));
         out.print(
                 "<form>"
-                        + "<label>" + rs.getInt("product_id") + "</label>" +
+                        + "<label>" + productName + "</label>" +
                         "<input type=\"text\" style=\"display:none;\" name=\"product_id\" value=\"" + rs.getInt("product_id") + "\">" +
                         "<label>$" + rs.getFloat("price")*rs.getInt("quantity") + "</label>" +
                         "<input type=\"text\" style=\"display:none;\" name=\"product_price\" value=\"" + rs.getFloat("price")*rs.getInt("quantity") + "\">" +

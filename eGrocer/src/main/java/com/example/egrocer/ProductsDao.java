@@ -91,6 +91,27 @@ public class ProductsDao {
         }
         return result;
     }
+
+    public String getProductName(int product_id)
+    {
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "SELECT product_name FROM egrocer.products WHERE product_id = " + product_id;
+        String result = "No product name found";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            while (rs.next())
+                result = rs.getString("product_name");
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return result;
+    }
+
     public int getProductID(int vendor_id, String pname){
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);

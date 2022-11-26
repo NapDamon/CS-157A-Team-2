@@ -124,6 +124,7 @@ public class RegisterDao {
 
     }
     public String createCart(int customer_id){
+        int cartNum = 0;
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
@@ -133,12 +134,34 @@ public class RegisterDao {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, customer_id);
             ps.executeUpdate();
-
-
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             result = "Cart Not Successfully Created";
             e.printStackTrace();
+        }
+        sql = "SELECT cart_id FROM own ORDER BY cart_id DESC LIMIT 1 ";
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            while(rs.next())
+                cartNum = rs.getInt("cart_id");
+        } catch (SQLException e) {
+            result="Cart Not Successfully Created";
+            e.printStackTrace();
+        }
+        sql = "insert into carts(carts_id) values(?) ";
+        if(cartNum != 0)
+        {
+            try {
+                PreparedStatement ps = con.prepareStatement(sql);
+                ps.setInt(1, cartNum);
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                result = "Cart Not Successfully Created";
+                e.printStackTrace();
+            }
         }
         return result;
     }

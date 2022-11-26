@@ -91,10 +91,24 @@ if(session.getAttribute("customer")!= null){
     <%
         String selectedVendor =  request.getParameter("vendor");
         if (selectedVendor != null){
-            out.println("<h3><label> Currently Viewing: "+selectedVendor+"</label></h3>");
             ProductsDao pdao = new ProductsDao();
             vendor_id = pdao.getVendorID(selectedVendor);
             session.setAttribute("selectedVendor",vendor_id);
+            //String sql = "SELECT COUNT(customer_id) AS count FROM egrocer.favorite WHERE customer_id = " + customer_id + " AND vendor_id = " + vendor_id;
+            int count = 0;
+            try{
+                stmt = con.createStatement();
+                rs = stmt.executeQuery("SELECT COUNT(customer_id) AS count FROM egrocer.favorite WHERE customer_id = "
+                        + customer_id + " AND vendor_id = " + vendor_id);
+                while(rs.next())
+                    count = rs.getInt("count");
+            }catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            out.println("<h3><label> Currently Viewing: "+selectedVendor+"</label></h3>");
+            if(count != 1)
+                out.println("<form><input type=\"submit\" class=\"formBtn4\" name=\"fav\" value=\"Make Favorite!\"></form>");
         }
         try{
             stmt = con.createStatement();
@@ -117,6 +131,50 @@ if(session.getAttribute("customer")!= null){
             e.printStackTrace();
         }
 
+        String fav = request.getParameter("fav");
+        if(fav != null)
+        {
+            int count = 0;
+            try{
+                stmt = con.createStatement();
+                rs = stmt.executeQuery("SELECT COUNT(customer_id) AS count FROM egrocer.favorite WHERE customer_id = "
+                        + customer_id);
+                while(rs.next())
+                    count = rs.getInt("count");
+            }catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            if(count == 0)
+            {
+                //ProductsDao pdao = new ProductsDao();
+                vendor_id = (int) session.getAttribute("selectedVendor");
+                String sql = "INSERT INTO favorite(customer_id,vendor_id) values(?,?)";
+                try{
+                    PreparedStatement ps = con.prepareStatement(sql);
+                    ps.setInt(1,customer_id);
+                    ps.setInt(2,vendor_id);
+                    ps.executeUpdate();
+                }catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+            else if(count == 1)
+            {
+                vendor_id = (int) session.getAttribute("selectedVendor");
+                String sql = "UPDATE favorite SET customer_id = ?, vendor_id = ? WHERE customer_id = " + customer_id;
+                try{
+                    PreparedStatement ps = con.prepareStatement(sql);
+                    ps.setInt(1,customer_id);
+                    ps.setInt(2,vendor_id);
+                    ps.executeUpdate();
+                }catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }
 
         String selectedProduct = request.getParameter("cart");
         if(selectedProduct != null)
