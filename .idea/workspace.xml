@@ -9,31 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8e5e78f-2dee-40b4-a916-9a5f784d185b" name="Changes" comment="added change password functionality">
+    <list default="true" id="803ddbf0-436a-41ce-a586-102e6bf33e2b" name="Changes" comment="added change password functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/OrderDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/OrderSummary.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/OrderSummary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/PlaceOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/PlaceOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/ProductsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/ProductsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/RegisterDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/RegisterDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CSS/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerCart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerCart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerHome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/OrderDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/OrderDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/ProductsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/ProductsDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/RegisterDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/RegisterDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/Account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/Account.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/OrderDetail.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CSS/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CheckOut.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CustomerCart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CustomerCart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CustomerHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CustomerHome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/OrderSummary.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/OrderSummary.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorHome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorOrders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorOrders.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/OrderDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/OrderDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/ProductsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/ProductsDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/RegisterDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/RegisterDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/OrderDetail.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +72,7 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="Tomcat 10.0.23" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.27" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 10.0.23" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.23" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="eGrocer:war exploded">
@@ -400,21 +381,6 @@
         <entry key="MAIN">
           <value>
             <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="HEAD" />
-                </option>
-              </RecentGroup>
-            </list>
           </value>
         </entry>
       </map>

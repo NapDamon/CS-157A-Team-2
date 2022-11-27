@@ -59,7 +59,7 @@ if(session.getAttribute("vendor") != null){
   <label>Name: <%out.println(name);%></label><br><br>
   <label>Email: <%out.println(email);%></label><br><br>
   <label>Phone: <%out.println(phone);%></label><br><br>
-  <label>Address: <%out.println(address);%></label>
+  <label>Address: <%out.println(address);%></label><br><br>
     <input type="submit" name="changePW" value="Change Password" class="formBtn2">
 </form>
     <%
