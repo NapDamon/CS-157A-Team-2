@@ -59,9 +59,9 @@ if(session.getAttribute("customer")!= null){
             response.setContentType("text/html");
             PrintWriter output = response.getWriter();
             String db = "egrocer";
-            int update, vendor_id = 0,product_id = 0, amount = 0;
+            int update, vendor_id = 0,product_id = 0, amount = 0,searchVendor_id = 0;
             float price = 0;
-            String user, productName = null;
+            String user, productName = null,searchResult = "";
             user = "root";
             ResultSet rs = null;
             int i =0;
@@ -84,6 +84,13 @@ if(session.getAttribute("customer")!= null){
             }
         %>
     </select>
+    <input type="submit" value="Go!" class="formBtn2">
+</form>
+<form>
+    <div><label>- Or -</label></div>
+    <br>
+    <label for="search">Search for product by name:</label>
+    <input type="text" id="search" name="search">
     <input type="submit" value="Go!" class="formBtn2">
 </form>
 
@@ -131,6 +138,33 @@ if(session.getAttribute("customer")!= null){
             e.printStackTrace();
         }
 
+        searchResult = request.getParameter("search");
+        if(searchResult != null)
+        {
+            productName = searchResult;
+            stmt = con.createStatement();
+
+            rs = stmt.executeQuery("SELECT * FROM products WHERE product_name = \"" + productName + "\"");
+            out.print("<h3><label>Search Results for: " + productName + "</label></h3>");
+            if(!rs.isBeforeFirst())
+                out.print("<div><label>No Products were found</label></div>");
+            while (rs.next()){
+                searchVendor_id = rs.getInt("vendor_id");
+                out.print(
+                        "<form>"
+                                + "<label>" + rs.getString("product_name") + "</label>" +
+                                "<input type=\"text\" style=\"display:none;\" name=\"product_name\" value=\"" + rs.getString("product_name") + "\">" +
+                                "<label>$" + rs.getFloat("price") + "</label>" +
+                                "<input type=\"text\" style=\"display:none;\" name=\"product_price\" value=\"" + rs.getFloat("price") + "\">" +
+                                "<label>Available: " + rs.getInt("quantity") + "</label> "
+                                + "<label>Vendor: " + rDao.getVendorName(searchVendor_id) + "</label>"
+                                + "<input type=\"text\" style=\"display:none;\" name=\"vendor_id\" value=\"" + searchVendor_id + "\">" +
+                                "<input type=\"number\" name=\"amount\" style=\"width: 60px\" value=\"1\">" + " "
+                                + "<input type=\"submit\" class=\"formBtn2\" name = \"searchCart\" value=\"Add to cart\" >"
+                                + "</form>");
+            }
+        }
+
         String fav = request.getParameter("fav");
         if(fav != null)
         {
@@ -164,8 +198,8 @@ if(session.getAttribute("customer")!= null){
         }
 
         String selectedProduct = request.getParameter("cart");
-
-        if(selectedProduct != null)
+        String searchedProduct = request.getParameter("searchCart");
+        if(selectedProduct != null || searchedProduct != null)
         {
             ProductsDao pdao = new ProductsDao();
             OrderDao oDao = new OrderDao();
@@ -173,6 +207,8 @@ if(session.getAttribute("customer")!= null){
             cart_id = (int) session.getAttribute("cart_id");
             if(session.getAttribute("selectectVendor") != null)
                 vendor_id = (int) session.getAttribute("selectedVendor");
+            else if(searchedProduct != null)
+                vendor_id = Integer.parseInt(request.getParameter("vendor_id"));
             product_id = pdao.getProductID(vendor_id,productName);
             amount = Integer.parseInt(request.getParameter("amount"));
             price = Float.parseFloat(request.getParameter("product_price"));

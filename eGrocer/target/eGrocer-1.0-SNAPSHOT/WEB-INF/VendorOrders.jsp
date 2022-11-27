@@ -41,7 +41,7 @@
 
     try {
         Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "root");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "nomaDpaM3@1");
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT A.*, address FROM " +
                 "(SELECT * FROM orders NATURAL JOIN ships " +
