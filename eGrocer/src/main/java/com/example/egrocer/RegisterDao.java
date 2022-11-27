@@ -362,6 +362,52 @@ public class RegisterDao {
         }
         return result;
     }
+
+    boolean hasFavorite(int customer_id)
+    {
+        int count = 0;
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        Statement stmt;
+        ResultSet rs = null;
+        try{
+            stmt = con.createStatement();
+            rs = stmt.executeQuery("SELECT COUNT(customer_id) AS count FROM egrocer.favorite WHERE customer_id = "
+                    + customer_id);
+            while(rs.next())
+                count = rs.getInt("count");
+        }catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return count == 1;
+    }
+
+    public int getFavorite(int customer_id)
+    {
+        int vendor_id = -1;
+        if(hasFavorite(customer_id))
+        {
+            String dbdriver = "com.mysql.jdbc.Driver";
+            loadDriver(dbdriver);
+            Connection con = getConnection();
+            Statement stmt;
+            ResultSet rs = null;
+            try{
+                stmt = con.createStatement();
+                rs = stmt.executeQuery("SELECT vendor_id FROM egrocer.favorite WHERE customer_id = "
+                        + customer_id);
+                while(rs.next())
+                    vendor_id = rs.getInt("vendor_id");
+            }catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        return vendor_id;
+    }
+
     public String changePassword(String newPW, int user_id) throws SQLException {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);

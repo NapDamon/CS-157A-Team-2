@@ -1,9 +1,6 @@
 package com.example.egrocer;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class OrderDao {
     public void loadDriver(String dbDriver)
@@ -80,5 +77,26 @@ public class OrderDao {
             e.printStackTrace();
         }
         return result;
+    }
+
+    public boolean checkInCart(int product_id,int cart_id)
+    {
+        int count = 0;
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        Statement stmt;
+        ResultSet rs = null;
+        try{
+            stmt = con.createStatement();
+            rs = stmt.executeQuery("SELECT COUNT(product_id) AS count FROM egrocer.contains WHERE cart_id = "
+                    + cart_id + " AND product_id = "+ product_id );
+            while(rs.next())
+                count = rs.getInt("count");
+        }catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return count == 1;
     }
 }

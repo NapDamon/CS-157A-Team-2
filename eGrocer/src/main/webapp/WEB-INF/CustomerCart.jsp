@@ -43,6 +43,7 @@
   String name, password, email, phone, address;
   int cart_id, customer_id;
   ProductsDao pDao = new ProductsDao();
+  float total = 0;
 
   try {
     Class.forName("com.mysql.jdbc.Driver");
@@ -67,6 +68,7 @@
       rs = stmt.executeQuery("SELECT * FROM contains WHERE cart_id = " + cart_id);
       while (rs.next()){
         productName = pDao.getProductName(rs.getInt("product_id"));
+        total += rs.getFloat("price")*rs.getInt("quantity");
         out.print(
                 "<form>"
                         + "<label>" + productName + "</label>" +
@@ -97,6 +99,8 @@
         e.printStackTrace();
       }
     }
+
+    out.println("<h3><label>Total: " + total + "</label></h3>");
 
   }
 

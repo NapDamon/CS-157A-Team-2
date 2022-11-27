@@ -10,6 +10,8 @@
 <%@ page import="java.util.Arrays" %>
 <%@ page import="com.example.egrocer.ProductsDao" %>
 <%@ page import="java.lang.*" %>
+<%@ page import="com.example.egrocer.RegisterDao" %>
+<%@ page import="com.example.egrocer.OrderDao" %>
 <html>
 <head>
     <title>eGrocer</title>
@@ -90,24 +92,22 @@ if(session.getAttribute("customer")!= null){
 
     <%
         String selectedVendor =  request.getParameter("vendor");
-        if (selectedVendor != null){
+        RegisterDao rDao = new RegisterDao();
+        if (selectedVendor != null || rDao.getFavorite(customer_id) != -1){
             ProductsDao pdao = new ProductsDao();
-            vendor_id = pdao.getVendorID(selectedVendor);
-            session.setAttribute("selectedVendor",vendor_id);
-            //String sql = "SELECT COUNT(customer_id) AS count FROM egrocer.favorite WHERE customer_id = " + customer_id + " AND vendor_id = " + vendor_id;
-            int count = 0;
-            try{
-                stmt = con.createStatement();
-                rs = stmt.executeQuery("SELECT COUNT(customer_id) AS count FROM egrocer.favorite WHERE customer_id = "
-                        + customer_id + " AND vendor_id = " + vendor_id);
-                while(rs.next())
-                    count = rs.getInt("count");
-            }catch (SQLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+            if(selectedVendor != null)
+            {
+                vendor_id = pdao.getVendorID(selectedVendor);
+                session.setAttribute("selectedVendor",vendor_id);
+                out.println("<h3><label> Currently Viewing: "+selectedVendor+"</label></h3>");
             }
-            out.println("<h3><label> Currently Viewing: "+selectedVendor+"</label></h3>");
-            if(count != 1)
+            else if(rDao.getFavorite(customer_id) != -1)
+            {
+                vendor_id = rDao.getFavorite(customer_id);
+                out.println("<h3><label> Currently Viewing Your Favorite: "+rDao.getVendorName(vendor_id)+"</label></h3>");
+            }
+
+            if(rDao.getFavorite(customer_id) != vendor_id)
                 out.println("<form><input type=\"submit\" class=\"formBtn4\" name=\"fav\" value=\"Make Favorite!\"></form>");
         }
         try{
@@ -134,21 +134,9 @@ if(session.getAttribute("customer")!= null){
         String fav = request.getParameter("fav");
         if(fav != null)
         {
-            int count = 0;
-            try{
-                stmt = con.createStatement();
-                rs = stmt.executeQuery("SELECT COUNT(customer_id) AS count FROM egrocer.favorite WHERE customer_id = "
-                        + customer_id);
-                while(rs.next())
-                    count = rs.getInt("count");
-            }catch (SQLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            if(count == 0)
+            vendor_id = (int) session.getAttribute("selectedVendor");
+            if(rDao.getFavorite(customer_id) == -1)
             {
-                //ProductsDao pdao = new ProductsDao();
-                vendor_id = (int) session.getAttribute("selectedVendor");
                 String sql = "INSERT INTO favorite(customer_id,vendor_id) values(?,?)";
                 try{
                     PreparedStatement ps = con.prepareStatement(sql);
@@ -160,9 +148,8 @@ if(session.getAttribute("customer")!= null){
                     e.printStackTrace();
                 }
             }
-            else if(count == 1)
+            else if(rDao.getFavorite(customer_id) != vendor_id)
             {
-                vendor_id = (int) session.getAttribute("selectedVendor");
                 String sql = "UPDATE favorite SET customer_id = ?, vendor_id = ? WHERE customer_id = " + customer_id;
                 try{
                     PreparedStatement ps = con.prepareStatement(sql);
@@ -177,28 +164,48 @@ if(session.getAttribute("customer")!= null){
         }
 
         String selectedProduct = request.getParameter("cart");
+
         if(selectedProduct != null)
         {
             ProductsDao pdao = new ProductsDao();
+            OrderDao oDao = new OrderDao();
             productName = request.getParameter("product_name");
             cart_id = (int) session.getAttribute("cart_id");
-            vendor_id = (int) session.getAttribute("selectedVendor");
+            if(session.getAttribute("selectectVendor") != null)
+                vendor_id = (int) session.getAttribute("selectedVendor");
             product_id = pdao.getProductID(vendor_id,productName);
             amount = Integer.parseInt(request.getParameter("amount"));
             price = Float.parseFloat(request.getParameter("product_price"));
-            String sql = "INSERT INTO contains(cart_id,product_id,vendor_id,quantity,price) values(?,?,?,?,?)";
-            try{
-                PreparedStatement ps = con.prepareStatement(sql);
-                ps.setInt(1, cart_id);
-                ps.setInt(2, product_id);
-                ps.setInt(3, vendor_id);
-                ps.setInt(4, amount);
-                ps.setFloat(5, price);
-                ps.executeUpdate();
+            if(!oDao.checkInCart(product_id,cart_id))
+            {
+                String sql = "INSERT INTO contains(cart_id,product_id,vendor_id,quantity,price) values(?,?,?,?,?)";
+                try{
+                    PreparedStatement ps = con.prepareStatement(sql);
+                    ps.setInt(1, cart_id);
+                    ps.setInt(2, product_id);
+                    ps.setInt(3, vendor_id);
+                    ps.setInt(4, amount);
+                    ps.setFloat(5, price);
+                    ps.executeUpdate();
+                }
+                catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
-            catch (SQLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+            else{
+                String sql = "UPDATE contains SET quantity = ?,price = ? WHERE cart_id = " + cart_id + " AND " +
+                        "product_id = " + product_id + " AND " + " vendor_id = " + vendor_id;
+                try{
+                    PreparedStatement ps = con.prepareStatement(sql);
+                    ps.setInt(1, amount);
+                    ps.setFloat(2, price);
+                    ps.executeUpdate();
+                }
+                catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         }
 

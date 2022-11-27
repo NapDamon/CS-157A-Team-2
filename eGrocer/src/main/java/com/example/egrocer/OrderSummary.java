@@ -1,11 +1,11 @@
-//package com.example.egrocer;
-//
-//import java.io.*;
-//
-//import jakarta.servlet.ServletException;
-//import jakarta.servlet.http.*;
-//import jakarta.servlet.annotation.*;
-//
+package com.example.egrocer;
+
+import java.io.*;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
+
 //@WebServlet(name = "orderSummary", value = "/orderSummary")
 //public class OrderSummary extends HttpServlet{
 //

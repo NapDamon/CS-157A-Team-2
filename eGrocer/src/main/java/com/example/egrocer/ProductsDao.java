@@ -98,7 +98,7 @@ public class ProductsDao {
         loadDriver(dbdriver);
         Connection con = getConnection();
         String sql = "SELECT product_name FROM egrocer.products WHERE product_id = " + product_id;
-        String result = "No product name found";
+        String result = "";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.executeQuery();
@@ -107,6 +107,7 @@ public class ProductsDao {
                 result = rs.getString("product_name");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
+            result = "No product name found";
             e.printStackTrace();
         }
         return result;
