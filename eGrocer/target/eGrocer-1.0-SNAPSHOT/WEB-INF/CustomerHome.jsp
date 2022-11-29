@@ -69,7 +69,7 @@ if(session.getAttribute("customer")!= null){
             Connection con = null;
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "nomaDpaM3@1");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "root");
                 stmt = con.createStatement();
                 rs = stmt.executeQuery("SELECT * FROM egrocer.vendors");
                 while (rs.next()) {
@@ -141,27 +141,32 @@ if(session.getAttribute("customer")!= null){
         searchResult = request.getParameter("search");
         if(searchResult != null)
         {
-            productName = searchResult;
-            stmt = con.createStatement();
+            try{
+                productName = searchResult;
+                stmt = con.createStatement();
 
-            rs = stmt.executeQuery("SELECT * FROM products WHERE product_name = \"" + productName + "\"");
-            out.print("<h3><label>Search Results for: " + productName + "</label></h3>");
-            if(!rs.isBeforeFirst())
-                out.print("<div><label>No Products were found</label></div>");
-            while (rs.next()){
-                searchVendor_id = rs.getInt("vendor_id");
-                out.print(
-                        "<form>"
-                                + "<label>" + rs.getString("product_name") + "</label>" +
-                                "<input type=\"text\" style=\"display:none;\" name=\"product_name\" value=\"" + rs.getString("product_name") + "\">" +
-                                "<label>$" + rs.getFloat("price") + "</label>" +
-                                "<input type=\"text\" style=\"display:none;\" name=\"product_price\" value=\"" + rs.getFloat("price") + "\">" +
-                                "<label>Available: " + rs.getInt("quantity") + "</label> "
-                                + "<label>Vendor: " + rDao.getVendorName(searchVendor_id) + "</label>"
-                                + "<input type=\"text\" style=\"display:none;\" name=\"vendor_id\" value=\"" + searchVendor_id + "\">" +
-                                "<input type=\"number\" name=\"amount\" style=\"width: 60px\" value=\"1\">" + " "
-                                + "<input type=\"submit\" class=\"formBtn2\" name = \"searchCart\" value=\"Add to cart\" >"
-                                + "</form>");
+                rs = stmt.executeQuery("SELECT * FROM products WHERE product_name = \"" + productName + "\"");
+                out.print("<h3><label>Search Results for: " + productName + "</label></h3>");
+                if(!rs.isBeforeFirst())
+                    out.print("<div><label>No Products were found</label></div>");
+                while (rs.next()){
+                    searchVendor_id = rs.getInt("vendor_id");
+                    out.print(
+                            "<form>"
+                                    + "<label>" + rs.getString("product_name") + "</label>" +
+                                    "<input type=\"text\" style=\"display:none;\" name=\"product_name\" value=\"" + rs.getString("product_name") + "\">" +
+                                    "<label>$" + rs.getFloat("price") + "</label>" +
+                                    "<input type=\"text\" style=\"display:none;\" name=\"product_price\" value=\"" + rs.getFloat("price") + "\">" +
+                                    "<label>Available: " + rs.getInt("quantity") + "</label> "
+                                    + "<label>Vendor: " + rDao.getVendorName(searchVendor_id) + "</label>"
+                                    + "<input type=\"text\" style=\"display:none;\" name=\"vendor_id\" value=\"" + searchVendor_id + "\">" +
+                                    "<input type=\"number\" name=\"amount\" style=\"width: 60px\" value=\"1\">" + " "
+                                    + "<input type=\"submit\" class=\"formBtn2\" name = \"searchCart\" value=\"Add to cart\" >"
+                                    + "</form>");
+                }
+            }catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
         }
 

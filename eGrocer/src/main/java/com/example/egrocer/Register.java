@@ -27,7 +27,7 @@ public class Register extends HttpServlet {
         String isVender = request.getParameter("isVendor");
         String result="";
         int cart_id =0;
-        String jsp ="";
+        String redirect ="";
 
         RegisterDao rdao=new RegisterDao();
         result =rdao.insertUser(password,address,phone,email);
@@ -39,12 +39,12 @@ public class Register extends HttpServlet {
         if(user_id != 0){
             if(isVender != null){
                 result = rdao.insertVendor(username, user_id);
-                jsp = "/WEB-INF/VendorHome.jsp";
+                redirect = "vendorHome";
             }else{
                 result = rdao.insertCustomer(username, user_id);
                 rdao.createCart(user_id);
                 cart_id = rdao.getCartID(user_id);
-                jsp = "/WEB-INF/CustomerHome.jsp";
+                redirect = "customerHome";
             }
 
         }
@@ -67,7 +67,7 @@ public class Register extends HttpServlet {
             session.setAttribute("email", email);
             session.setAttribute("address", address);
             session.setAttribute("phone", phone);
-            request.getRequestDispatcher(jsp).forward(request,response);
+            response.sendRedirect(redirect);
 
 
         }

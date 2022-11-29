@@ -22,7 +22,7 @@ public class LogOut extends HttpServlet {
             session.removeAttribute("address");
             session.removeAttribute("phone");
            // session.invalidate();
-            response.sendRedirect("Login");
+
         }
         if(session.getAttribute("customer") != null && !session.getAttribute("customer").equals("")){
             session.removeAttribute("customer");
@@ -33,10 +33,10 @@ public class LogOut extends HttpServlet {
             session.removeAttribute("password");
             session.removeAttribute("email");
           //  session.invalidate();
-            response.sendRedirect("Login");
+           // response.sendRedirect("Login");
         }
 
-
+        request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request,response);
 
     }
 

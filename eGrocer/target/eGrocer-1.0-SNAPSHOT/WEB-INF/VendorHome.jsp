@@ -70,9 +70,9 @@
       <h4>Your Inventory: </h4>
 
       <%
-
-        String db = "egrocer";
-        String user = "root";
+        String dburl = "jdbc:mysql://localhost:3306/egrocer";
+        String dbuname = "root";
+        String dbpassword = "root";
         ResultSet rs = null;
         Statement stmt = null;
         Connection con = null;
@@ -80,7 +80,8 @@
         String product_id;
         try {
           Class.forName("com.mysql.jdbc.Driver");
-          con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "nomaDpaM3@1");
+          con = DriverManager.getConnection(dburl, dbuname, dbpassword);
+         // con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "root");
           stmt = con.createStatement();
           rs = stmt.executeQuery("SELECT * FROM products");
 

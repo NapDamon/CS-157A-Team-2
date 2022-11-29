@@ -55,7 +55,8 @@ public class Login extends HttpServlet {
                 session.setAttribute("phone", phone);
                 session.setAttribute("address", address);
                 jsp = "/WEB-INF/VendorHome.jsp";
-                request.getRequestDispatcher(jsp).forward(request,response);
+                response.sendRedirect("vendorHome");
+              //  request.getRequestDispatcher(jsp).forward(request,response);
             }else if(isVendor == null && !customerName.equals("")){
 
                 //username = rdao.getCustomerName(user_id);
@@ -68,7 +69,8 @@ public class Login extends HttpServlet {
                 session.setAttribute("phone", phone);
                 session.setAttribute("address", address);
                 jsp = "/WEB-INF/CustomerHome.jsp";
-                request.getRequestDispatcher(jsp).forward(request,response);
+                response.sendRedirect("customerHome");
+              //  request.getRequestDispatcher(jsp).forward(request,response);
             }else if(isVendor != null){
                 request.setAttribute("vendor", "false");
                 request.getRequestDispatcher("/WEB-INF/Login.jsp").forward(request,response);
