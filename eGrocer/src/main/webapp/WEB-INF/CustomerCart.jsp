@@ -11,6 +11,7 @@
 <%@ page import="java.util.Arrays" %>
 <%@ page import="com.example.egrocer.ProductsDao" %>
 <%@ page import="java.lang.*" %>
+<%@ page import="com.example.egrocer.OrderDao" %>
 <html>
 <head>
   <title>eGrocer</title>
@@ -23,7 +24,12 @@
   <li><a href="customerHome">Home</a></li>
   <li><a href="customerOrders">Orders</a></li>
   <li><a href="account">Account</a></li>
-  <li><a class="active" href="customerCart">Cart</a></li>
+  <%
+    OrderDao oDao = new OrderDao();
+    int cart_id = (int) session.getAttribute("cart_id");
+    int numInCart = oDao.numOfProdInCart(cart_id);
+    out.print("<li><a class=\"active\" href=\"customerCart\">Cart (" + numInCart + ")</a></li>");
+  %>
   <li style="float:right"><a href="logout">Log Out</a>
   </li>
 
@@ -41,7 +47,7 @@
   Statement stmt = null;
   Connection con = null;
   String name, password, email, phone, address;
-  int cart_id, customer_id;
+  int customer_id;
   ProductsDao pDao = new ProductsDao();
   float total = 0;
 
@@ -59,9 +65,9 @@
     email = session.getAttribute("email").toString();
     phone = session.getAttribute("phone").toString();
     address = session.getAttribute("address").toString();
-    cart_id = (int) session.getAttribute("cart_id");
 
-    out.println("<h3><label>Cart for " + name + "</label></h3>");
+
+    out.println("<div><h3>Cart for " + name + "</h3></div>");
     try{
       stmt = con.createStatement();
 

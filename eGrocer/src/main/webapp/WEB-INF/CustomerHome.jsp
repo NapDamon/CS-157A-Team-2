@@ -12,6 +12,7 @@
 <%@ page import="java.lang.*" %>
 <%@ page import="com.example.egrocer.RegisterDao" %>
 <%@ page import="com.example.egrocer.OrderDao" %>
+<%@ page import="com.sun.org.apache.xpath.internal.operations.Or" %>
 <html>
 <head>
     <title>eGrocer</title>
@@ -32,7 +33,8 @@ if(session.getAttribute("customer")!= null){
     phone = session.getAttribute("phone").toString();
     address = session.getAttribute("address").toString();
     cart_id = (int) session.getAttribute("cart_id");
-
+    OrderDao oDao = new OrderDao();
+    int numInCart = oDao.numOfProdInCart(cart_id);
    
 
 %>
@@ -41,7 +43,10 @@ if(session.getAttribute("customer")!= null){
     <li><a class="active" href="customerHome">Home</a></li>
     <li><a href="customerOrders">Orders</a></li>
     <li><a href="account">Account</a></li>
-    <li><a href="customerCart">Cart</a></li>
+        <%
+            out.print("<li><a href=\"customerCart\">Cart (" + numInCart + ")</a></li>");
+        %>
+
     <li style="float:right"><a href="logout">Log Out</a>
     </li>
 </ul>
@@ -207,10 +212,9 @@ if(session.getAttribute("customer")!= null){
         if(selectedProduct != null || searchedProduct != null)
         {
             ProductsDao pdao = new ProductsDao();
-            OrderDao oDao = new OrderDao();
             productName = request.getParameter("product_name");
             cart_id = (int) session.getAttribute("cart_id");
-            if(session.getAttribute("selectectVendor") != null)
+            if(session.getAttribute("selectedVendor") != null)
                 vendor_id = (int) session.getAttribute("selectedVendor");
             else if(searchedProduct != null)
                 vendor_id = Integer.parseInt(request.getParameter("vendor_id"));

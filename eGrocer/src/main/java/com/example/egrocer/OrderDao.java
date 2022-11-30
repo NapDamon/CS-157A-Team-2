@@ -99,4 +99,24 @@ public class OrderDao {
         }
         return count == 1;
     }
+
+    public int numOfProdInCart(int cart_id)
+    {
+        int sum = 0;
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        Statement stmt;
+        ResultSet rs = null;
+        try{
+            stmt = con.createStatement();
+            rs = stmt.executeQuery("SELECT SUM(quantity) AS sum FROM egrocer.contains WHERE cart_id = " + cart_id);
+            while(rs.next())
+                sum = rs.getInt("sum");
+        }catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return sum;
+    }
 }

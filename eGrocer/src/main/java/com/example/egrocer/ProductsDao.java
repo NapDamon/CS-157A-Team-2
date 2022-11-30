@@ -45,6 +45,27 @@ public class ProductsDao {
         }
         return result;
     }
+
+    public int getVendorID(int product_id){
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "SELECT vendor_id FROM products WHERE product_id = " + product_id;
+        int result=-1;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            while (rs.next())
+                result = rs.getInt("vendor_id");
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            result = -1;
+            e.printStackTrace();
+        }
+        return result;
+    }
+
     public int getVendorID(String vendor){
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
@@ -114,26 +135,20 @@ public class ProductsDao {
     }
 
     public int getProductID(int vendor_id, String pname){
+        int result=0;
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
-        String sql = "SELECT * FROM products" ;
-        int result=0;
+        String sql = "SELECT product_id FROM egrocer.products WHERE vendor_id = " + vendor_id + " AND product_name = '" + pname + "'";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
-            while (rs.next()){
-                if(pname.equals(rs.getString("product_name"))
-                        && vendor_id == rs.getInt("vendor_id")){
-                    result = rs.getInt("product_id");
-                }
-            }
-
-
+            while (rs.next())
+                result = rs.getInt("product_id");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
-            result = 0;
+            result = -1;
             e.printStackTrace();
         }
         return result;
