@@ -80,8 +80,8 @@
         String product_id;
         try {
           Class.forName("com.mysql.jdbc.Driver");
-          //con = DriverManager.getConnection(dburl, dbuname, dbpassword);
-          con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "root");
+          con = DriverManager.getConnection(dburl, dbuname, dbpassword);
+
           stmt = con.createStatement();
           rs = stmt.executeQuery("SELECT * FROM products");
 

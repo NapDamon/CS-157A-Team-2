@@ -10,17 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="803ddbf0-436a-41ce-a586-102e6bf33e2b" name="Changes" comment="added change password functionality">
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/df651416-8b45-4281-88ae-102131ebfa46.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/df651416-8b45-4281-88ae-102131ebfa46.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/OrderDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/ProductsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/ProductsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/RegisterDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/RegisterDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerCart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerCart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/CustomerHome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/OrderSummary.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/OrderSummary.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/LogOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/LogOut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/Register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorHome.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorOrders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorOrders.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/customerOrders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/customerOrders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/LogOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/LogOut.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/Login.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/OrderDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/OrderDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/ProductsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/ProductsDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/RegisterDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/classes/com/example/egrocer/RegisterDao.class" afterDir="false" />
@@ -29,6 +28,8 @@
       <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CustomerHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/CustomerHome.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorHome.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorOrders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorOrders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/LogOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/LogOut.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/Login.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/OrderDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/OrderDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/ProductsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/ProductsDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/RegisterDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/classes/com/example/egrocer/RegisterDao.class" afterDir="false" />
