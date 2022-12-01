@@ -139,6 +139,45 @@ public class OrderDao {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        updateCartNum(cart_id,0);
+    }
+
+    public int getCartNum(int cart_id)
+    {
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        Statement stmt;
+        ResultSet rs = null;
+        int num = -1;
+        try{
+            stmt = con.createStatement();
+            rs = stmt.executeQuery("SELECT num_of_products FROM egrocer.carts WHERE carts_id = "
+                    + cart_id);
+            while(rs.next())
+                num = rs.getInt("num_of_products");
+        }catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return num;
+    }
+
+    public void updateCartNum(int cart_id,int num)
+    {
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "UPDATE carts SET num_of_products = ? WHERE carts_id = " + cart_id;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, num);
+            ps.executeUpdate();
+            ps.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -147,13 +186,16 @@ public class OrderDao {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
-        String sql = "insert into contents_of(cart_id, order_num, product_id, quantity) VALUES (?,?,?,?)";
+        ProductsDao pDao = new ProductsDao();
+        int vendor_id = pDao.getVendorID(product_id);
+        String sql = "insert into contents_of(cart_id, order_num, product_id, vendor_id, quantity) VALUES (?,?,?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, cart_id);
             ps.setInt(2, order_num);
             ps.setInt(3, product_id);
-            ps.setInt(4, quantity);
+            ps.setInt(4, vendor_id);
+            ps.setInt(5, quantity);
             ps.executeUpdate();
         } catch (SQLException e) {
             // TODO Auto-generated catch block

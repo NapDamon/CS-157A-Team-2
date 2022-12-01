@@ -40,7 +40,7 @@
   response.setContentType("text/html");
   PrintWriter output = response.getWriter();
   String db = "egrocer";
-  int update, vendor_id = 0,product_id = 0, amount = 0;
+  int update, vendor_id = 0,product_id = 0, amount = 0, current = 0;
   String user, productName = null;
   user = "root";
   ResultSet rs = null;
@@ -85,8 +85,9 @@
                         "<input type=\"text\" style=\"display:none;\" name=\"product_id\" value=\"" + rs.getInt("product_id") + "\">" +
                         "<label>$" + rs.getFloat("price")*rs.getInt("quantity") + "</label>" +
                         "<input type=\"text\" style=\"display:none;\" name=\"product_price\" value=\"" + rs.getFloat("price")*rs.getInt("quantity") + "\">" +
-                        "<label>Amount in cart: " + rs.getInt("quantity") + "</label> "
-                        + "<input type=\"submit\" class=\"formBtn2\" name = \"remove\" value=\"Remove from cart\" >"
+                        "<label>Amount in cart: " + rs.getInt("quantity") + "</label> " +
+                        "<input type=\"text\" style=\"display:none;\" name=\"amount\" value=\"" + rs.getInt("quantity") + "\">" +
+                         "<input type=\"submit\" class=\"formBtn2\" name = \"remove\" value=\"Remove from cart\" >"
                         + "</form>");
         }
       } catch (SQLException e) {
@@ -96,13 +97,14 @@
     String selectedProduct = request.getParameter("remove");
     if(selectedProduct != null)
     {
-
       product_id =Integer.parseInt(request.getParameter("product_id"));
       cart_id = (int) session.getAttribute("cart_id");
+      amount = Integer.parseInt(request.getParameter("amount"));
       String sql = "DELETE FROM contains WHERE product_id = " + product_id + " AND cart_id = " +cart_id;
       try{
         PreparedStatement ps = con.prepareStatement(sql);
         ps.executeUpdate();
+        oDao.updateCartNum(cart_id,oDao.getCartNum(cart_id) - amount);
       }
       catch (SQLException e) {
         // TODO Auto-generated catch block
@@ -111,7 +113,7 @@
     }
 
     out.println("<h3><label>Total: " + total + "</label></h3>");
-    out.println("<form><input type=\"submit\" class=\"formBtn2\" name = \"tempOrder\" value=\"Temp Order Button\" >");
+    //out.println("<form><input type=\"submit\" class=\"formBtn2\" name = \"tempOrder\" value=\"Temp Order Button\" ></form>");
 
     String ordered = request.getParameter("tempOrder");
     if(ordered != null)
@@ -134,7 +136,9 @@
   }
 
 %>
-
+  <form action="Payment">
+    <div align="center"><input type="submit" value="Checkout" class="formBtn2"></div>
+  </form>
 
 
 </body>

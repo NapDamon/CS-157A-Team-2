@@ -10,6 +10,7 @@
 <%@ page import="com.example.egrocer.ProductsDao" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="com.example.egrocer.OrderDao" %>
+<%@ page import="java.time.LocalDate" %>
 
 <html>
 <head>
@@ -37,7 +38,7 @@
     Statement stmt = null;
     Connection con = null;
     String name, password, email, phone, address;
-    int customer_id;
+    int customer_id = 0;
     ProductsDao pDao = new ProductsDao();
     float total = 0, tax = 0;
 
@@ -80,6 +81,20 @@
 
       out.println("<div align=\"center\"><p><b>Total: " + total + "</b></p></div>");
     }
+
+    int orderNum = 0;
+    LocalDate today = LocalDate.now();
+    try{
+        stmt = con.createStatement();
+        rs = stmt.executeQuery("SELECT order_num FROM egrocer.orders ORDER BY order_num DESC LIMIT 1");
+        while(rs.next())
+            orderNum = rs.getInt("order_num");
+    }catch (SQLException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    oDao.addOrder(orderNum+1,today.toString(),customer_id,orderNum+301);
+    oDao.createOrderDetails(cart_id,orderNum+1);
 %>
 
     <form action="customerHome">

@@ -232,6 +232,7 @@ if(session.getAttribute("customer")!= null){
                     ps.setInt(4, amount);
                     ps.setFloat(5, price);
                     ps.executeUpdate();
+                    oDao.updateCartNum(cart_id,amount + oDao.getCartNum(cart_id));
                 }
                 catch (SQLException e) {
                     // TODO Auto-generated catch block
@@ -246,6 +247,7 @@ if(session.getAttribute("customer")!= null){
                     ps.setInt(1, amount);
                     ps.setFloat(2, price);
                     ps.executeUpdate();
+                    oDao.updateCartNum(cart_id,amount + oDao.getCartNum(cart_id));
                 }
                 catch (SQLException e) {
                     // TODO Auto-generated catch block

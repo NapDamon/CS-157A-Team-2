@@ -50,7 +50,7 @@ public class ProductsDao {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
-        String sql = "SELECT vendor_id FROM products WHERE product_id = " + product_id;
+        String sql = "SELECT vendor_id FROM egrocer.products WHERE product_id = " + product_id;
         int result=-1;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
