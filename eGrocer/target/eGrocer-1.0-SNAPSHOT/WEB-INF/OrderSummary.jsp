@@ -111,7 +111,7 @@
 
   try {
     Class.forName("com.mysql.jdbc.Driver");
-    con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "nomaDpaM3@1");
+    con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "root");
   } catch (SQLException e) {
     output.println("SQLException caught: " + e.getMessage());
   }

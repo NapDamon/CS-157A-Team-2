@@ -177,7 +177,8 @@ public class RegisterDao {
             ResultSet rs = ps.getResultSet();
             while(rs.next()){
                 if(rs.getString("email") != null){
-                    if((rs.getString("email").equals(email) || rs.getString("phone").equals(phone))
+                    if((rs.getString("email").equals(email)
+                            || rs.getString("phone").equals(phone))
                     && rs.getString("password").equals(password)){
                         return "User Validated Successfully";
                     }

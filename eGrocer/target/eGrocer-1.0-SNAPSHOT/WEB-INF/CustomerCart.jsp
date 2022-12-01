@@ -12,6 +12,7 @@
 <%@ page import="com.example.egrocer.ProductsDao" %>
 <%@ page import="java.lang.*" %>
 <%@ page import="com.example.egrocer.OrderDao" %>
+<%@ page import="java.time.LocalDate" %>
 <html>
 <head>
   <title>eGrocer</title>
@@ -66,8 +67,11 @@
     phone = session.getAttribute("phone").toString();
     address = session.getAttribute("address").toString();
 
-
     out.println("<div><h3>Cart for " + name + "</h3></div>");
+    out.println("<form><input type=\"submit\" class=\"formBtn4\" name=\"clearCart\" value=\"Clear Cart\"></form>");
+    String cartCleared = request.getParameter("clearCart");
+    if(cartCleared != null)
+      oDao.clearCart(cart_id);
     try{
       stmt = con.createStatement();
 
@@ -92,7 +96,7 @@
     String selectedProduct = request.getParameter("remove");
     if(selectedProduct != null)
     {
-      ProductsDao pdao = new ProductsDao();
+
       product_id =Integer.parseInt(request.getParameter("product_id"));
       cart_id = (int) session.getAttribute("cart_id");
       String sql = "DELETE FROM contains WHERE product_id = " + product_id + " AND cart_id = " +cart_id;
@@ -107,6 +111,25 @@
     }
 
     out.println("<h3><label>Total: " + total + "</label></h3>");
+    out.println("<form><input type=\"submit\" class=\"formBtn2\" name = \"tempOrder\" value=\"Temp Order Button\" >");
+
+    String ordered = request.getParameter("tempOrder");
+    if(ordered != null)
+    {
+      int orderNum = 0;
+      LocalDate today = LocalDate.now();
+      try{
+        stmt = con.createStatement();
+        rs = stmt.executeQuery("SELECT order_num FROM egrocer.orders ORDER BY order_num DESC LIMIT 1");
+        while(rs.next())
+          orderNum = rs.getInt("order_num");
+      }catch (SQLException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+      oDao.addOrder(orderNum+1,today.toString(),customer_id,orderNum+301);
+      oDao.createOrderDetails(cart_id,orderNum+1);
+    }
 
   }
 
