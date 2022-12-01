@@ -86,8 +86,9 @@
     try{
       for(int j = 0;j<orderNums.size();j++)
       {
-        out.print("<div><h3>Order Number: " + orderNums.get(j) + "</h3></div>");
-        out.println("<form><input type=\"submit\" class=\"formBtn4\" name=\"fav\" value=\"Report an issue with this order\"></form>");
+        out.print("<form><div><h3><label>Order Number: " + orderNums.get(j) + "</label></h3></div>");
+        out.print("<input type=\"text\" style=\"display:none;\" name=\"orderNum\" value=\"" + orderNums.get(j) + "\">");
+        out.print("<input type=\"submit\" class=\"formBtn4\" name=\"removeOrderDetail\" value=\"Remove this order details\"></form>");
         rs = stmt.executeQuery("SELECT * FROM contents_of WHERE order_num = " + orderNums.get(j));
         while (rs.next()){
           productName = pDao.getProductName(rs.getInt("product_id"));
@@ -100,6 +101,13 @@
       }
     } catch (SQLException e) {
       output.println("SQLException caught: " + e.getMessage());
+    }
+
+    String removeOrder = request.getParameter("removeOrderDetail");
+    if(removeOrder != null)
+    {
+        int orderToRemove = Integer.parseInt(request.getParameter("orderNum"));
+        oDao.deleteOrder(orderToRemove,customer_id,cart_id);
     }
 
   }

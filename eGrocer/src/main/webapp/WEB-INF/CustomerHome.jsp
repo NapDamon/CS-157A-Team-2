@@ -135,7 +135,7 @@ if(session.getAttribute("customer")!= null){
                                 "<input type=\"text\" style=\"display:none;\" name=\"product_price\" value=\"" + rs.getFloat("price") + "\">" +
                                 "<label>Available: " + rs.getInt("quantity") + "</label> "
                                 + "<input type=\"number\" name=\"amount\" style=\"width: 60px\" value=\"1\">" + "  "
-                                + "<input type=\"submit\" class=\"formBtn2\" name = \"cart\" value=\"Add to cart\" >"
+                                + "<input type=\"submit\" id=\"cart\" class=\"formBtn2\" name = \"cart\" value=\"Add to cart\" >"
                                 + "</form>");
             }
         }catch (SQLException e) {
@@ -267,9 +267,6 @@ if(session.getAttribute("customer")!= null){
         out.println("<a href=\"customerLogin\">Log in</a>");
     }
 %>
-
-
-
 
 </body>
 </html>
