@@ -37,7 +37,7 @@ public class Account extends HttpServlet {
         }
 
         String correctPW = rdao.getPassword(user_id);
-     //   response.getWriter().println(correctPW);
+
         if(!correctPW.equals(currentPW)){
             request.setAttribute("correctPW", "false");
 

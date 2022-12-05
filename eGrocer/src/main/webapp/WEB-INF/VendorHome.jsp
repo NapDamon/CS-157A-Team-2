@@ -70,8 +70,8 @@
       <h4>Your Inventory: </h4>
 
       <%
-        String db = "jdbc:mysql://localhost:3306/egrocer";
-        String user = "root";
+        String dburl = "jdbc:mysql://localhost:3306/egrocer";
+        String dbuname = "root";
         String dbpassword = "root";
         ResultSet rs = null;
         Statement stmt = null;
@@ -82,10 +82,10 @@
           Class.forName("com.mysql.jdbc.Driver");
           con = DriverManager.getConnection(dburl, dbuname, dbpassword);
           stmt = con.createStatement();
-          rs = stmt.executeQuery("SELECT * FROM products");
+          rs = stmt.executeQuery("SELECT * FROM products WHERE vendor_id = " + vendor_id);
 
           while(rs.next()){
-            if(vendor_id == rs.getInt("vendor_id")){
+
               out.println("<form class=\"addCard\" action=\"vendorHome\">"
               + "<label> Product: "+rs.getString("product_name")+ "</label>"
               + "<label>  Price: " +rs.getFloat("price")+ "</label>"
@@ -127,7 +127,7 @@
               }
 
               i++;
-            }
+
           }
 
           rs.close();

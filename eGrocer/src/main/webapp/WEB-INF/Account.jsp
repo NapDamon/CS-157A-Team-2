@@ -18,12 +18,10 @@
     String name ="";
     if(session.getAttribute("vendor") != null){
         name = session.getAttribute("vendor").toString();
-
     }
     if(session.getAttribute("customer") != null){
         name = session.getAttribute("customer").toString();
     }
-
 String email = session.getAttribute("email").toString();
 String phone = session.getAttribute("phone").toString();
 String address = session.getAttribute("address").toString();
@@ -90,8 +88,6 @@ if(session.getAttribute("vendor") != null){
       out.println("<label>Successfully changed password.</label>");
 
   }
-
-
 
     %>
 
