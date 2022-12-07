@@ -60,8 +60,10 @@ label{
     height: max-content;
 }
 .formBtn {
-    background-color: #04AA6D;
+    background-color: #087830;
     color: white;
+    font-size: 15px;
+    border-radius: 30px;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -70,18 +72,22 @@ label{
 
 }
 .formBtn2 {
-    background-color: #04AA6D;
+    background-color: #087830;
     color: white;
+    font-size: 16px;
+    border-radius: 30px;
     padding: 12px 20px;
     margin: 10px 0;
     border: none;
     cursor: pointer;
     height: 60px;
-    width: 200px;
+    width: 150px;
 }
 .formBtn3 {
-    background-color: #04AA6D;
+    background-color: #087830;
     color: white;
+    font-size: 16px;
+    border-radius: 30px;
     padding: 12px 20px;
     margin: 10px 0;
     border: none;
@@ -90,14 +96,16 @@ label{
     width: fit-content;
 }
 .formBtn4 {
-    background-color: #04AA6D;
+    background-color: #c80815;
     color: white;
+    font-size: 13px;
+    border-radius: 30px;
     padding: 6px 15px;
     margin: 10px 20px;
     border: none;
     cursor: pointer;
-    height: 30px;
-    width: 200px;
+    height: 40px;
+    width: fit-content;
 }
 
 input[type=submit]:hover {
@@ -128,9 +136,11 @@ select{
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
+
 .logo{
+    margin-top: 10%;
     padding: 16px;
-    color: #04AA6D;
+    color: #087830;
     display: flex;
     height: 120px;
     align-items: center;
@@ -140,6 +150,17 @@ select{
     text-shadow: #cccccc 2px 2px 0.2rem;
 }
 
+.logo1{
+    padding: 16px;
+    color: #087830;
+    display: flex;
+    height: 120px;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-family: sans-serif;
+    text-shadow: #cccccc 2px 2px 0.2rem;
+}
 
 ul {
     list-style-type: none;
@@ -169,5 +190,25 @@ li a:hover:not(.active) {
 
 li a.active {
     color: white;
-    background-color: #04AA6D;
+    background-color: #087830;
+}
+
+.startBtn{
+    background-color: #fbeee0;
+    border: 2px solid #422800;
+    border-radius: 30px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
