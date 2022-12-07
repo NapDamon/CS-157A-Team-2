@@ -61,26 +61,21 @@ public class RegisterDao {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
-        String sql = "SELECT * FROM user"  ;
+        String sql = "SELECT * FROM user WHERE email = ? OR phone = ? AND password = ?"  ;
         int result=0;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, email);
+            ps.setString(2, phone);
+            ps.setString(3, pw);
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
-            while (rs.next()){
-
-                    if(email.equals(rs.getString("email")) || phone.equals(rs.getString("phone"))
-                            && pw.equals(rs.getString("password"))){
-                        result = rs.getInt("user_id");
-
-                    }
-
-
+            if (rs.next()){
+                result = rs.getInt("user_id");
             }
 
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -170,20 +165,17 @@ public class RegisterDao {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
-        String sql = "SELECT * FROM user";
+        String sql = "SELECT * FROM user WHERE email = ? OR phone = ? AND password = ?";
         String result="Bad Credentials";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, email);
+            ps.setString(2, phone);
+            ps.setString(3, password);
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
-            while(rs.next()){
-                if(rs.getString("email") != null){
-                    if((rs.getString("email").equals(email)
-                            || rs.getString("phone").equals(phone))
-                    && rs.getString("password").equals(password)){
-                        return "User Validated Successfully";
-                    }
-                }
+           if(rs.next()){
+                return "User Validated Successfully";
 
             }
 
@@ -201,21 +193,20 @@ public class RegisterDao {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
-        String sql = "SELECT * FROM vendors" ;
+        String sql = "SELECT * FROM vendors WHERE vendor_id = ?" ;
         String result="";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, vendor_id);
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
             while (rs.next()){
-                if(vendor_id == rs.getInt("vendor_id")){
-                    result = rs.getString("vendor_name");
-                }
+                result = rs.getString("vendor_name");
+
             }
 
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             result = "Failed to retrieve vendor name";
             e.printStackTrace();
         }
@@ -225,16 +216,15 @@ public class RegisterDao {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
-        String sql = "SELECT * FROM customers" ;
+        String sql = "SELECT * FROM customers WHERE customer_id = ?" ;
         String result="";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, customer_id);
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
-            while (rs.next()){
-                if(customer_id == rs.getInt("customer_id")){
-                    result = rs.getString("customer_name");
-                }
+            if (rs.next()){
+                result = rs.getString("customer_name");
             }
 
 
@@ -249,21 +239,19 @@ public class RegisterDao {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
-        String sql = "SELECT * FROM user" ;
+        String sql = "SELECT * FROM user WHERE user_id = ?" ;
         String result="";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, user_id);
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
-            while (rs.next()){
-                if(user_id == rs.getInt("user_id")){
-                    result = rs.getString("phone");
-                }
+            if (rs.next()){
+                result = rs.getString("phone");
             }
 
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             result = "Failed to retrieve phone number";
             e.printStackTrace();
         }
@@ -273,21 +261,19 @@ public class RegisterDao {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
-        String sql = "SELECT * FROM user" ;
+        String sql = "SELECT * FROM user WHERE user_id = ?" ;
         String result="";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, user_id);
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
-            while (rs.next()){
-                if(user_id == rs.getInt("user_id")){
-                    result = rs.getString("address");
-                }
+            if (rs.next()){
+                result = rs.getString("address");
+
             }
 
-
         } catch (SQLException e) {
-
             result = "Failed to retrieve address";
             e.printStackTrace();
         }
@@ -297,21 +283,19 @@ public class RegisterDao {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
-        String sql = "SELECT * FROM user" ;
+        String sql = "SELECT * FROM user WHERE user_id = ?" ;
         String result="";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, user_id);
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
-            while (rs.next()){
-                if(user_id == rs.getInt("user_id")){
-                    result = rs.getString("email");
-                }
+            if (rs.next()){
+                result = rs.getString("email");
+
             }
 
-
         } catch (SQLException e) {
-
             result = "Failed to retrieve email";
             e.printStackTrace();
         }
@@ -321,21 +305,19 @@ public class RegisterDao {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
-        String sql = "SELECT * FROM own" ;
+        String sql = "SELECT * FROM own WHERE customer_id = ?" ;
         int result=0;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, customer_id);
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
-            while (rs.next()){
-                if(customer_id == rs.getInt("customer_id")){
-                    result = rs.getInt("cart_id");
-                }
+            if (rs.next()){
+                result = rs.getInt("cart_id");
             }
 
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return result;
@@ -357,9 +339,7 @@ public class RegisterDao {
             }
 
 
-
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return result;
@@ -428,8 +408,6 @@ public class RegisterDao {
             con.close();
 
         } catch (SQLException e) {
-
-
             result="Data Not Updated Successfully";
             e.printStackTrace();
         }
@@ -451,9 +429,7 @@ public class RegisterDao {
                 }
             }
 
-
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             result = 0;
             e.printStackTrace();
         }
@@ -463,10 +439,11 @@ public class RegisterDao {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
-        String sql = "SELECT * FROM customers" ;
+        String sql = "SELECT * FROM customers WHERE customer_name = ?" ;
         int result=0;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, customer);
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
             while (rs.next()){
@@ -475,9 +452,7 @@ public class RegisterDao {
                 }
             }
 
-
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             result = 0;
             e.printStackTrace();
         }

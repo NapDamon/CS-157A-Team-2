@@ -26,7 +26,7 @@ public class EditProduct extends HttpServlet {
         int product_id = Integer.parseInt(request.getParameter("product_id"));
 
         HttpSession session = request.getSession();
-        int vendor_id = (int) session.getAttribute("vendor");
+        int vendor_id = (int) session.getAttribute("vendor_id");
 
 
         ProductsDao pdao=new ProductsDao();

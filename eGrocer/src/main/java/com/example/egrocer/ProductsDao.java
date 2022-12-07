@@ -70,22 +70,19 @@ public class ProductsDao {
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
-        String sql = "SELECT * FROM vendors" ;
+        String sql = "SELECT * FROM vendors WHERE vendor_name = ?" ;
         int result=0;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, vendor);
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
-            while (rs.next()){
-                if(vendor.equals(rs.getString("vendor_name"))){
-                    result = rs.getInt("vendor_id");
-                }
+            if (rs.next()){
+                result = rs.getInt("vendor_id");
             }
 
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            result = 0;
             e.printStackTrace();
         }
         return result;

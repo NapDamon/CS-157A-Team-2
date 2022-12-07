@@ -74,14 +74,16 @@ if(session.getAttribute("customer")!= null){
             Connection con = null;
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "nhilun5798");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "root");
                 stmt = con.createStatement();
                 rs = stmt.executeQuery("SELECT * FROM egrocer.vendors");
                 while (rs.next()) {
                     out.println("<option value=\"" + rs.getString("vendor_name") + "\">" + rs.getString("vendor_name") + "</option><br/><br/>");
                 }
+
                 rs.close();
                 stmt.close();
+
             } catch (SQLException e) {
                 output.println("SQLException caught: " + e.getMessage());
             }
@@ -137,7 +139,7 @@ if(session.getAttribute("customer")!= null){
                                 + "</form>");
             }
         }catch (SQLException e) {
-
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

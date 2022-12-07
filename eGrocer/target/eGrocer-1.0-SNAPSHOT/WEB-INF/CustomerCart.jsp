@@ -49,7 +49,7 @@
   float total = 0;
   try {
     Class.forName("com.mysql.jdbc.Driver");
-    con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "nhilun5798");
+    con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "root");
   } catch (SQLException e) {
     output.println("SQLException caught: " + e.getMessage());
   }

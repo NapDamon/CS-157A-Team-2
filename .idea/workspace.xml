@@ -9,16 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="803ddbf0-436a-41ce-a586-102e6bf33e2b" name="Changes" comment="db connection issue fixed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/EditProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/EditProduct.java" afterDir="false" />
+    <list default="true" id="803ddbf0-436a-41ce-a586-102e6bf33e2b" name="Changes" comment="modified sql statements">
       <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/RegisterDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/RegisterDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/java/com/example/egrocer/VendorHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/Account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/Account.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/src/main/webapp/WEB-INF/VendorHome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/eGrocer/target/eGrocer-1.0-SNAPSHOT/WEB-INF/VendorHome.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,22 +52,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Emant/IdeaProjects/CS-157A-Team-2",
-    "list.type.of.created.stylesheet": "CSS",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "advanced.settings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Emant/IdeaProjects/CS-157A-Team-2&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Tomcat 10.0.23" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.23" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -198,7 +190,9 @@
       <workItem from="1668816213585" duration="12766000" />
       <workItem from="1668990765823" duration="1233000" />
       <workItem from="1669247106613" duration="2827000" />
-      <workItem from="1670211509973" duration="5793000" />
+      <workItem from="1670211509973" duration="6054000" />
+      <workItem from="1670297395478" duration="32000" />
+      <workItem from="1670393815262" duration="4634000" />
     </task>
     <task id="LOCAL-00001" summary="added display of vendor stock">
       <created>1666722399460</created>
@@ -375,7 +369,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668828964649</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="minor changes">
+      <created>1670217495668</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1670217495668</updated>
+    </task>
+    <task id="LOCAL-00027" summary="modified sql statements">
+      <created>1670397850536</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1670397850536</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,6 +417,8 @@
     <MESSAGE value="fixed vendors and customers logging in through wrong form" />
     <MESSAGE value="combined customer and vendor login/registration to minimize redundancy" />
     <MESSAGE value="added change password functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="added change password functionality" />
+    <MESSAGE value="minor changes" />
+    <MESSAGE value="modified sql statements" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified sql statements" />
   </component>
 </project>
