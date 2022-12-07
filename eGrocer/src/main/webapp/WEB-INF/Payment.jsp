@@ -18,13 +18,21 @@
     <style><%@include file="/WEB-INF/CSS/style.css"%></style>
 </head>
 <body>
-<%
-    OrderDao oDao = new OrderDao();
-    int cart_id = (int) session.getAttribute("cart_id");
-    int numInCart = oDao.numOfProdInCart(cart_id);
-    out.print("<li><a class=\"active\" href=\"customerCart\">Cart (" + numInCart + ")</a></li>");
-%>
-<header class="logo"><h1>Check Out</h1></header>
+<ul>
+    <li><a href="customerHome">Home</a></li>
+    <li><a href="customerOrders">Orders</a></li>
+    <li><a href="account">Account</a></li>
+    <%
+        OrderDao oDao = new OrderDao();
+        int cart_id = (int) session.getAttribute("cart_id");
+        int numInCart = oDao.numOfProdInCart(cart_id);
+        out.print("<li><a class=\"active\" href=\"customerCart\">Cart (" + numInCart + ")</a></li>");
+    %>
+    <li style="float:right"><a href="logout">Log Out</a>
+    </li>
+
+</ul>
+<header class="logo1"><h1>Check Out</h1></header>
 <div class="content">
 
     <form method = "post" action = "Receipt" class="Card">

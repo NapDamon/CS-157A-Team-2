@@ -74,7 +74,7 @@ if(session.getAttribute("customer")!= null){
             Connection con = null;
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "root");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "nhilun5798");
                 stmt = con.createStatement();
                 rs = stmt.executeQuery("SELECT * FROM egrocer.vendors");
                 while (rs.next()) {
@@ -87,14 +87,14 @@ if(session.getAttribute("customer")!= null){
             }
         %>
     </select>
-    <input type="submit" value="Go!" class="formBtn2">
+    <input type="submit" value="GO!" class="formBtn2">
 </form>
 <form>
     <div><label>- Or -</label></div>
     <br>
     <label for="search">Search for product by name:</label>
     <input type="text" id="search" name="search">
-    <input type="submit" value="Go!" class="formBtn2">
+    <input type="submit" value="GO!" class="formBtn2">
 </form>
 
 
@@ -118,7 +118,7 @@ if(session.getAttribute("customer")!= null){
             }
 
             if(rDao.getFavorite(customer_id) != vendor_id)
-                out.println("<form><input type=\"submit\" class=\"formBtn4\" name=\"fav\" value=\"Make Favorite!\"></form>");
+                out.println("<form><input type=\"submit\" class=\"formBtn3\" name=\"fav\" value=\"Add To Favorites\"></form>");
         }
         try{
             stmt = con.createStatement();

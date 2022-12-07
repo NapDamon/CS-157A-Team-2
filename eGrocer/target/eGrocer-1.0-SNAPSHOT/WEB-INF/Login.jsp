@@ -12,7 +12,7 @@
     <style><%@include file="/WEB-INF/CSS/style.css"%></style>
 </head>
 <body>
-<header class="logo"><h1>eGrocer</h1></header>
+<header class="logo1"><h1>eGrocer</h1></header>
 <div class="content">
 
     <form method = "post" action = "Login" class="Card" >
@@ -33,7 +33,7 @@
         <label>Are you a vendor?
         <input type="checkbox" name="isVendor" value="true">
         </label>
-        <input type="submit" value="Log in" class="formBtn">
+        <input type="submit" value="LOGIN" class="formBtn">
 
         <div>Don't have an account? Sign up <a href="Registration">here</a></div>
         <div style="padding-top: 16px; color: red">

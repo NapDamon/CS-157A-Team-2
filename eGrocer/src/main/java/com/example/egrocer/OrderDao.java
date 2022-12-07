@@ -106,6 +106,35 @@ public class OrderDao {
         }
     }
 
+
+    public void deletePayment(int payment_id, int customer_id, int order_num)
+    {
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "DELETE FROM payments WHERE payment_id = ? AND customer_id = ?";
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,payment_id);
+            ps.setInt(2,customer_id);
+            ps.executeUpdate();
+        }catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        sql = "DELETE FROM orders WHERE order_num = ? AND payment_id = ?";
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,order_num);
+            ps.setInt(2,payment_id);
+            ps.executeUpdate();
+        }catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+
     public void addOrder(int order_num,String date,int customer_id,int payment_id)
     {
         String dbdriver = "com.mysql.jdbc.Driver";
@@ -124,6 +153,28 @@ public class OrderDao {
             e.printStackTrace();
         }
     }
+
+
+    public void addPayment(int payment_id, String date, String method, double amount, int customer_id)
+    {
+        String dbdriver = "com.mysql.jdbc.Driver";
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String sql = "INSERT INTO payments(payment_id, date, method, aumount, customer_id) VALUES(?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, payment_id);
+            ps.setString(2, date);
+            ps.setString(3, method);
+            ps.setDouble(4, amount);
+            ps.setInt(5, customer_id);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
 
     public void clearCart(int cart_id)
     {
@@ -263,4 +314,6 @@ public class OrderDao {
         }
         return sum;
     }
+
+
 }

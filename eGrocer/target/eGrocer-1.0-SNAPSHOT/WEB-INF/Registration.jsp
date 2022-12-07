@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<header class="logo"><h1>eGrocer</h1></header>
+<header class="logo1"><h1>eGrocer</h1></header>
 <div class="content">
 
   <form method = "post" action = "Registration" class="Card">
@@ -40,7 +40,7 @@
     <label>Are you a vendor?
       <input type="checkbox" name="isVendor" value="true">
     </label>
-    <input type="submit" value="Register" class="formBtn">
+    <input type="submit" value="REGISTER" class="formBtn">
   </form>
 </div>
 
