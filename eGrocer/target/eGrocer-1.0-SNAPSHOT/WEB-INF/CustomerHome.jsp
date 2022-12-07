@@ -80,10 +80,8 @@ if(session.getAttribute("customer")!= null){
                 while (rs.next()) {
                     out.println("<option value=\"" + rs.getString("vendor_name") + "\">" + rs.getString("vendor_name") + "</option><br/><br/>");
                 }
-
                 rs.close();
                 stmt.close();
-
             } catch (SQLException e) {
                 output.println("SQLException caught: " + e.getMessage());
             }
@@ -139,7 +137,7 @@ if(session.getAttribute("customer")!= null){
                                 + "</form>");
             }
         }catch (SQLException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 
