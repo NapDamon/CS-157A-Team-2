@@ -17,10 +17,8 @@
 <head>
   <title>eGrocer</title>
   <style><%@include file="/WEB-INF/CSS/style.css"%></style>
-
 </head>
 <body>
-
 <ul>
   <li><a href="customerHome">Home</a></li>
   <li><a href="customerOrders">Orders</a></li>
@@ -33,9 +31,7 @@
   %>
   <li style="float:right"><a href="logout">Log Out</a>
   </li>
-
 </ul>
-
 <%
   response.setContentType("text/html");
   PrintWriter output = response.getWriter();
@@ -51,14 +47,12 @@
   int customer_id;
   ProductsDao pDao = new ProductsDao();
   float total = 0;
-
   try {
     Class.forName("com.mysql.jdbc.Driver");
     con = DriverManager.getConnection("jdbc:mysql://localhost/" + db, user, "root");
   } catch (SQLException e) {
     output.println("SQLException caught: " + e.getMessage());
   }
-
   if(session.getAttribute("customer")!= null) {
     name = session.getAttribute("customer").toString();
     password = session.getAttribute("password").toString();
@@ -66,15 +60,13 @@
     email = session.getAttribute("email").toString();
     phone = session.getAttribute("phone").toString();
     address = session.getAttribute("address").toString();
-
     out.println("<div><h3>Cart for " + name + "</h3></div>");
-    out.println("<form><input type=\"submit\" class=\"formBtn4\" name=\"clearCart\" value=\"Clear Cart\"></form>");
+    out.println("<form><input type=\"submit\" class=\"formBtn4\" name=\"clearCart\" value=\"DELETE CART\"></form>");
     String cartCleared = request.getParameter("clearCart");
     if(cartCleared != null)
       oDao.clearCart(cart_id);
     try{
       stmt = con.createStatement();
-
       rs = stmt.executeQuery("SELECT * FROM contains WHERE cart_id = " + cart_id);
       while (rs.next()){
         productName = pDao.getProductName(rs.getInt("product_id"));
@@ -87,13 +79,12 @@
                         "<input type=\"text\" style=\"display:none;\" name=\"product_price\" value=\"" + rs.getFloat("price")*rs.getInt("quantity") + "\">" +
                         "<label>Amount in cart: " + rs.getInt("quantity") + "</label> " +
                         "<input type=\"text\" style=\"display:none;\" name=\"amount\" value=\"" + rs.getInt("quantity") + "\">" +
-                         "<input type=\"submit\" class=\"formBtn2\" name = \"remove\" value=\"Remove from cart\" >"
+                        "<input type=\"submit\" class=\"formBtn3\" name =\"remove\" value=\"Remove from cart\" >"
                         + "</form>");
-        }
-      } catch (SQLException e) {
-        output.println("SQLException caught: " + e.getMessage());
       }
-
+    } catch (SQLException e) {
+      output.println("SQLException caught: " + e.getMessage());
+    }
     String selectedProduct = request.getParameter("remove");
     if(selectedProduct != null)
     {
@@ -111,10 +102,8 @@
         e.printStackTrace();
       }
     }
-
     out.println("<h3><label>Total: " + total + "</label></h3>");
     //out.println("<form><input type=\"submit\" class=\"formBtn2\" name = \"tempOrder\" value=\"Temp Order Button\" ></form>");
-
     String ordered = request.getParameter("tempOrder");
     if(ordered != null)
     {
@@ -131,15 +120,12 @@
       }
       oDao.addOrder(orderNum+1,today.toString(),customer_id,orderNum+301);
       oDao.createOrderDetails(cart_id,orderNum+1);
+
     }
-
   }
-
 %>
-  <form action="Payment">
-    <div align="center"><input type="submit" value="Checkout" class="formBtn2"></div>
-  </form>
-
-
+<form action="Payment">
+  <div><input type="submit" value="Checkout" class="formBtn2"></div>
+</form>
 </body>
 </html>
