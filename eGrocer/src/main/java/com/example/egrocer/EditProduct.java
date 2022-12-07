@@ -23,14 +23,14 @@ public class EditProduct extends HttpServlet {
         String newPrice= request.getParameter("newPrice");
         String newQuantity = request.getParameter("newQuantity");
         String update = request.getParameter("update");
-        String cancel = request.getParameter("cancel");
         int product_id = Integer.parseInt(request.getParameter("product_id"));
-        String vendor;
+
         HttpSession session = request.getSession();
-        vendor = (String) session.getAttribute("vendor");
+        int vendor_id = (int) session.getAttribute("vendor");
+
 
         ProductsDao pdao=new ProductsDao();
-        int vendor_id = pdao.getVendorID(vendor);
+
         String result = null;
         if("Update".equals(update)){
 

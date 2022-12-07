@@ -55,25 +55,26 @@ public class RegisterDao {
     /**
      *
      *
-     * @return user id. Returns 0 if insert failed
+     * @return user id. Returns 0 if invalid credentials
      */
     public int getUserID(String email, String phone ,String pw){
         String dbdriver = "com.mysql.jdbc.Driver";
         loadDriver(dbdriver);
         Connection con = getConnection();
-        String sql = "SELECT * FROM user" ;
+        String sql = "SELECT * FROM user"  ;
         int result=0;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
             while (rs.next()){
-                if(rs.getString("email") != null){
+
                     if(email.equals(rs.getString("email")) || phone.equals(rs.getString("phone"))
                             && pw.equals(rs.getString("password"))){
                         result = rs.getInt("user_id");
+
                     }
-                }
+
 
             }
 
@@ -238,7 +239,7 @@ public class RegisterDao {
 
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+
             result = "Failed to retrieve customer name";
             e.printStackTrace();
         }
@@ -286,7 +287,7 @@ public class RegisterDao {
 
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+
             result = "Failed to retrieve address";
             e.printStackTrace();
         }
@@ -310,7 +311,7 @@ public class RegisterDao {
 
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+
             result = "Failed to retrieve email";
             e.printStackTrace();
         }
